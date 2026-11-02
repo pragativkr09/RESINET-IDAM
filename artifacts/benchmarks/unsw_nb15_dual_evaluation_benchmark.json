@@ -1,0 +1,296 @@
+{
+  "pipeline": "UNSW-NB15 Dual-Evaluation Benchmark",
+  "dataset_info": {
+    "d5_train_rows": 175341,
+    "d8_orig_rows": 82332,
+    "d8_decontam_rows": 73791,
+    "purged_overlap_rows": 8541,
+    "features_count": 42,
+    "random_seed": 42
+  },
+  "models": {
+    "RandomForest": {
+      "parameters": {
+        "bootstrap": true,
+        "ccp_alpha": 0.0,
+        "class_weight": "balanced",
+        "criterion": "gini",
+        "max_depth": 20,
+        "max_features": "sqrt",
+        "max_leaf_nodes": null,
+        "max_samples": null,
+        "min_impurity_decrease": 0.0,
+        "min_samples_leaf": 1,
+        "min_samples_split": 2,
+        "min_weight_fraction_leaf": 0.0,
+        "monotonic_cst": null,
+        "n_estimators": 100,
+        "n_jobs": -1,
+        "oob_score": false,
+        "random_state": 42,
+        "verbose": 0,
+        "warm_start": false
+      },
+      "fit_time_seconds": 5.59,
+      "peak_memory_mb": 276.99,
+      "artifact_file": "unsw_nb15_randomforest.joblib",
+      "track_1_original_d8": {
+        "accuracy": 0.9045693047660691,
+        "precision": 0.8706359410542973,
+        "recall": 0.9709476749316156,
+        "f1": 0.918059799555727,
+        "macro_f1": 0.9019105139366665,
+        "roc_auc": 0.9841502214294062,
+        "pr_auc": 0.9879911515484354,
+        "fpr": 0.17675675675675676,
+        "fnr": 0.029052325068384365,
+        "confusion_matrix": {
+          "tn": 30460,
+          "fp": 6540,
+          "fn": 1317,
+          "tp": 44015,
+          "matrix": [
+            [
+              30460,
+              6540
+            ],
+            [
+              1317,
+              44015
+            ]
+          ]
+        },
+        "inference_time_s": 0.2953
+      },
+      "track_2_decontaminated_d8": {
+        "accuracy": 0.8989172121261401,
+        "precision": 0.8571064224437747,
+        "recall": 0.9661291587172987,
+        "f1": 0.9083582126227071,
+        "macro_f1": 0.8978328856402451,
+        "roc_auc": 0.9816432737658488,
+        "pr_auc": 0.9841934215912922,
+        "fpr": 0.173468813330331,
+        "fnr": 0.033870841282701306,
+        "confusion_matrix": {
+          "tn": 29365,
+          "fp": 6163,
+          "fn": 1296,
+          "tp": 36967,
+          "matrix": [
+            [
+              29365,
+              6163
+            ],
+            [
+              1296,
+              36967
+            ]
+          ]
+        },
+        "inference_time_s": 0.3073
+      },
+      "leakage_delta": {
+        "delta_accuracy": 0.005652,
+        "delta_precision": 0.01353,
+        "delta_recall": 0.004819,
+        "delta_f1": 0.009702,
+        "delta_macro_f1": 0.004078,
+        "delta_roc_auc": 0.002507,
+        "delta_pr_auc": 0.003798,
+        "delta_fpr": 0.003288,
+        "delta_fnr": -0.004819
+      }
+    },
+    "HistGradientBoosting": {
+      "parameters": {
+        "categorical_features": "from_dtype",
+        "class_weight": "balanced",
+        "early_stopping": "auto",
+        "interaction_cst": null,
+        "l2_regularization": 0.0,
+        "learning_rate": 0.1,
+        "loss": "log_loss",
+        "max_bins": 255,
+        "max_depth": null,
+        "max_features": 1.0,
+        "max_iter": 150,
+        "max_leaf_nodes": 31,
+        "min_samples_leaf": 20,
+        "monotonic_cst": null,
+        "n_iter_no_change": 10,
+        "random_state": 42,
+        "scoring": "loss",
+        "tol": 1e-07,
+        "validation_fraction": 0.1,
+        "verbose": 0,
+        "warm_start": false
+      },
+      "fit_time_seconds": 21.48,
+      "peak_memory_mb": 169.26,
+      "artifact_file": "unsw_nb15_histgradientboosting.joblib",
+      "track_1_original_d8": {
+        "accuracy": 0.9079701695574017,
+        "precision": 0.8767287313656229,
+        "recall": 0.9691167387276096,
+        "f1": 0.920610639033539,
+        "macro_f1": 0.9055763999380169,
+        "roc_auc": 0.9851888025522213,
+        "pr_auc": 0.9890999543285807,
+        "fpr": 0.16694594594594594,
+        "fnr": 0.030883261272390366,
+        "confusion_matrix": {
+          "tn": 30823,
+          "fp": 6177,
+          "fn": 1400,
+          "tp": 43932,
+          "matrix": [
+            [
+              30823,
+              6177
+            ],
+            [
+              1400,
+              43932
+            ]
+          ]
+        },
+        "inference_time_s": 0.3457
+      },
+      "track_2_decontaminated_d8": {
+        "accuracy": 0.9032944397013186,
+        "precision": 0.8651260997067449,
+        "recall": 0.9637508820531584,
+        "f1": 0.9117792503214321,
+        "macro_f1": 0.9023915593676912,
+        "roc_auc": 0.9827071373334354,
+        "pr_auc": 0.9856098634027052,
+        "fpr": 0.16181603242512949,
+        "fnr": 0.036249117946841596,
+        "confusion_matrix": {
+          "tn": 29779,
+          "fp": 5749,
+          "fn": 1387,
+          "tp": 36876,
+          "matrix": [
+            [
+              29779,
+              5749
+            ],
+            [
+              1387,
+              36876
+            ]
+          ]
+        },
+        "inference_time_s": 0.2268
+      },
+      "leakage_delta": {
+        "delta_accuracy": 0.004676,
+        "delta_precision": 0.011603,
+        "delta_recall": 0.005366,
+        "delta_f1": 0.008831,
+        "delta_macro_f1": 0.003185,
+        "delta_roc_auc": 0.002482,
+        "delta_pr_auc": 0.00349,
+        "delta_fpr": 0.00513,
+        "delta_fnr": -0.005366
+      }
+    },
+    "SGDClassifier": {
+      "parameters": {
+        "alpha": 0.0001,
+        "average": false,
+        "class_weight": "balanced",
+        "early_stopping": false,
+        "epsilon": 0.1,
+        "eta0": 0.01,
+        "fit_intercept": true,
+        "l1_ratio": 0.15,
+        "learning_rate": "optimal",
+        "loss": "log_loss",
+        "max_iter": 1000,
+        "n_iter_no_change": 5,
+        "n_jobs": null,
+        "penalty": "elasticnet",
+        "power_t": 0.5,
+        "random_state": 42,
+        "shuffle": true,
+        "tol": 0.001,
+        "validation_fraction": 0.1,
+        "verbose": 0,
+        "warm_start": false
+      },
+      "fit_time_seconds": 3.38,
+      "peak_memory_mb": 61.71,
+      "artifact_file": "unsw_nb15_sgdclassifier.joblib",
+      "track_1_original_d8": {
+        "accuracy": 0.8042680853131224,
+        "precision": 0.806161584407419,
+        "recall": 0.8485396629312627,
+        "f1": 0.8268079572689071,
+        "macro_f1": 0.800895775274916,
+        "roc_auc": 0.8699468262381326,
+        "pr_auc": 0.9062566480428536,
+        "fpr": 0.24997297297297297,
+        "fnr": 0.15146033706873732,
+        "confusion_matrix": {
+          "tn": 27751,
+          "fp": 9249,
+          "fn": 6866,
+          "tp": 38466,
+          "matrix": [
+            [
+              27751,
+              9249
+            ],
+            [
+              6866,
+              38466
+            ]
+          ]
+        },
+        "inference_time_s": 0.0574
+      },
+      "track_2_decontaminated_d8": {
+        "accuracy": 0.7905571140111938,
+        "precision": 0.7833291925465838,
+        "recall": 0.8240075268536183,
+        "f1": 0.8031536178721995,
+        "macro_f1": 0.7896959361856618,
+        "roc_auc": 0.8567418497734982,
+        "pr_auc": 0.8864539029071983,
+        "fpr": 0.24546836298131053,
+        "fnr": 0.1759924731463816,
+        "confusion_matrix": {
+          "tn": 26807,
+          "fp": 8721,
+          "fn": 6734,
+          "tp": 31529,
+          "matrix": [
+            [
+              26807,
+              8721
+            ],
+            [
+              6734,
+              31529
+            ]
+          ]
+        },
+        "inference_time_s": 0.0132
+      },
+      "leakage_delta": {
+        "delta_accuracy": 0.013711,
+        "delta_precision": 0.022832,
+        "delta_recall": 0.024532,
+        "delta_f1": 0.023654,
+        "delta_macro_f1": 0.0112,
+        "delta_roc_auc": 0.013205,
+        "delta_pr_auc": 0.019803,
+        "delta_fpr": 0.004505,
+        "delta_fnr": -0.024532
+      }
+    }
+  }
+}

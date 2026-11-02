@@ -1,0 +1,112 @@
+{
+  "ton_iot_unsupervised_benchmark.json": {
+    "path": "C:\\RESINET-IDAM\\Dataset\\artifacts\\benchmarks\\ton_iot_unsupervised_benchmark.json",
+    "size_bytes": 108791,
+    "sha256": "3451488017b28cd70f02e03e69f0ecbe48b623166fe2a1605a5023d500481cfd"
+  },
+  "ton_iot_fridge_isolationforest.joblib": {
+    "path": "C:\\RESINET-IDAM\\Dataset\\artifacts\\models\\ton_iot_fridge_isolationforest.joblib",
+    "size_bytes": 1308483,
+    "sha256": "42c421bffd8d880c68078439a172f7d694246ee893256c6469c26d57e91dc8cd"
+  },
+  "ton_iot_fridge_oneclasssvm.joblib": {
+    "path": "C:\\RESINET-IDAM\\Dataset\\artifacts\\models\\ton_iot_fridge_oneclasssvm.joblib",
+    "size_bytes": 12802,
+    "sha256": "06ee927460318be2ab4de6760cfbfd78215d445b9d95ad0fd96d07bca1f833f1"
+  },
+  "ton_iot_fridge_scaler.joblib": {
+    "path": "C:\\RESINET-IDAM\\Dataset\\artifacts\\models\\ton_iot_fridge_scaler.joblib",
+    "size_bytes": 745,
+    "sha256": "faa207398502cbba97a2828312d3165f7f8303af7f90358275e0ed18fc92e924"
+  },
+  "ton_iot_garage_door_isolationforest.joblib": {
+    "path": "C:\\RESINET-IDAM\\Dataset\\artifacts\\models\\ton_iot_garage_door_isolationforest.joblib",
+    "size_bytes": 77363,
+    "sha256": "c13f5f9d79233ebf4a2c265047325d283dfcd15e3d3a0b9285a237e2f85f7cc0"
+  },
+  "ton_iot_garage_door_oneclasssvm.joblib": {
+    "path": "C:\\RESINET-IDAM\\Dataset\\artifacts\\models\\ton_iot_garage_door_oneclasssvm.joblib",
+    "size_bytes": 12658,
+    "sha256": "a09a105c9b2909ce1db5f4008f486844b03c8e81f0ecf4ae6a2e049589e50b1e"
+  },
+  "ton_iot_garage_door_scaler.joblib": {
+    "path": "C:\\RESINET-IDAM\\Dataset\\artifacts\\models\\ton_iot_garage_door_scaler.joblib",
+    "size_bytes": 745,
+    "sha256": "b931d75318b7092547fc6c297683736ac6f9250fb93be2006ca77a3cece1d33b"
+  },
+  "ton_iot_gps_tracker_isolationforest.joblib": {
+    "path": "C:\\RESINET-IDAM\\Dataset\\artifacts\\models\\ton_iot_gps_tracker_isolationforest.joblib",
+    "size_bytes": 1738451,
+    "sha256": "895b117ff8244f4e28b48d94bd8d6c243e40845155fd7b91518fe350da5356cb"
+  },
+  "ton_iot_gps_tracker_oneclasssvm.joblib": {
+    "path": "C:\\RESINET-IDAM\\Dataset\\artifacts\\models\\ton_iot_gps_tracker_oneclasssvm.joblib",
+    "size_bytes": 12834,
+    "sha256": "9035d0a4734b54a4f9e833c0af3b76994f95ba2285b7e2be57e8b7184549f08d"
+  },
+  "ton_iot_gps_tracker_scaler.joblib": {
+    "path": "C:\\RESINET-IDAM\\Dataset\\artifacts\\models\\ton_iot_gps_tracker_scaler.joblib",
+    "size_bytes": 745,
+    "sha256": "b97ecfdbf2c2ab2aafa0e8d846369752ba2b4f60eb1aa1d5087f129290bbba28"
+  },
+  "ton_iot_modbus_isolationforest.joblib": {
+    "path": "C:\\RESINET-IDAM\\Dataset\\artifacts\\models\\ton_iot_modbus_isolationforest.joblib",
+    "size_bytes": 1831395,
+    "sha256": "a118883ac6b54536d3a3ffad199d5a67828726c418773a392f50e6052031f09e"
+  },
+  "ton_iot_modbus_oneclasssvm.joblib": {
+    "path": "C:\\RESINET-IDAM\\Dataset\\artifacts\\models\\ton_iot_modbus_oneclasssvm.joblib",
+    "size_bytes": 18226,
+    "sha256": "29d99ea2cb60a7ce25c3ebe3ac2396d835d8ecbd26b2562691fd96e8d5f94b21"
+  },
+  "ton_iot_modbus_scaler.joblib": {
+    "path": "C:\\RESINET-IDAM\\Dataset\\artifacts\\models\\ton_iot_modbus_scaler.joblib",
+    "size_bytes": 793,
+    "sha256": "95307160d777969995a255db70299040a826dc070e99487ef28c2a0af8b40124"
+  },
+  "ton_iot_motion_light_isolationforest.joblib": {
+    "path": "C:\\RESINET-IDAM\\Dataset\\artifacts\\models\\ton_iot_motion_light_isolationforest.joblib",
+    "size_bytes": 77363,
+    "sha256": "49bb3c89363a15b03d30852c6d585ad6d4a6f05f40e8947910eaf48278a68f63"
+  },
+  "ton_iot_motion_light_oneclasssvm.joblib": {
+    "path": "C:\\RESINET-IDAM\\Dataset\\artifacts\\models\\ton_iot_motion_light_oneclasssvm.joblib",
+    "size_bytes": 12658,
+    "sha256": "7155f2f8aee0ec63b0166581eb617b6f78ba55a590fa4e57b5b29d963cca4126"
+  },
+  "ton_iot_motion_light_scaler.joblib": {
+    "path": "C:\\RESINET-IDAM\\Dataset\\artifacts\\models\\ton_iot_motion_light_scaler.joblib",
+    "size_bytes": 745,
+    "sha256": "4877b7ade968ffdd94ce3db72f2007dd8cd7be3ddfc6b8e96362eee4c014978f"
+  },
+  "ton_iot_thermostat_isolationforest.joblib": {
+    "path": "C:\\RESINET-IDAM\\Dataset\\artifacts\\models\\ton_iot_thermostat_isolationforest.joblib",
+    "size_bytes": 1416195,
+    "sha256": "ab10728f876fa5a9f62a36086f7c5f167554c6af07e1bbd466242f4020471855"
+  },
+  "ton_iot_thermostat_oneclasssvm.joblib": {
+    "path": "C:\\RESINET-IDAM\\Dataset\\artifacts\\models\\ton_iot_thermostat_oneclasssvm.joblib",
+    "size_bytes": 12834,
+    "sha256": "8006fc8409b2d9aecd3d734b1d5b9cc1474d5bd33c5b140d85cafa9ee9344f7a"
+  },
+  "ton_iot_thermostat_scaler.joblib": {
+    "path": "C:\\RESINET-IDAM\\Dataset\\artifacts\\models\\ton_iot_thermostat_scaler.joblib",
+    "size_bytes": 745,
+    "sha256": "021a7d2fb27f45df43586daed6eb21c64cc0ce898716194554e5bae60c8882bf"
+  },
+  "ton_iot_weather_isolationforest.joblib": {
+    "path": "C:\\RESINET-IDAM\\Dataset\\artifacts\\models\\ton_iot_weather_isolationforest.joblib",
+    "size_bytes": 1522515,
+    "sha256": "3a5af937f5a12532369a7976fe8f723e7ec47bccf257fae17bc9b1e9580fbbdf"
+  },
+  "ton_iot_weather_oneclasssvm.joblib": {
+    "path": "C:\\RESINET-IDAM\\Dataset\\artifacts\\models\\ton_iot_weather_oneclasssvm.joblib",
+    "size_bytes": 15986,
+    "sha256": "044d3a8489843f95b265d11442129b971af1437c5571c7aed9e746168e1c59df"
+  },
+  "ton_iot_weather_scaler.joblib": {
+    "path": "C:\\RESINET-IDAM\\Dataset\\artifacts\\models\\ton_iot_weather_scaler.joblib",
+    "size_bytes": 753,
+    "sha256": "91914bc83dded8e7f616380b53a501c5757a02ef462089e33eda1805895c754e"
+  }
+}

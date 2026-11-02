@@ -1,0 +1,68 @@
+{
+  "pipeline": "OT-ICS Preprocessing Pipeline (D1 to D4)",
+  "total_records": 4159,
+  "total_duplicate_records": 0,
+  "per_file_breakdown": [
+    {
+      "file": "D1.csv",
+      "rows": 2,
+      "unique_sessions": 1,
+      "duplicates": 0,
+      "malware_distribution": {
+        "1": 2
+      }
+    },
+    {
+      "file": "D2.csv",
+      "rows": 29,
+      "unique_sessions": 16,
+      "duplicates": 0,
+      "malware_distribution": {
+        "1": 29
+      }
+    },
+    {
+      "file": "D3.csv",
+      "rows": 2119,
+      "unique_sessions": 1062,
+      "duplicates": 0,
+      "malware_distribution": {
+        "1": 2119
+      }
+    },
+    {
+      "file": "D4.csv",
+      "rows": 2009,
+      "unique_sessions": 1005,
+      "duplicates": 0,
+      "malware_distribution": {
+        "0": 2009
+      }
+    }
+  ],
+  "target_class_distribution": {
+    "1": 2150,
+    "0": 2009
+  },
+  "parquet_path": "processed\\ot_ics_d1_d4_cleaned.parquet",
+  "parquet_size_mb": 0.1643,
+  "session_leakage_assessment": {
+    "total_unique_sessions": 1062,
+    "multi_flow_sessions_count": 1058,
+    "cross_file_sessions_count": 1006,
+    "splitting_recommendation": "Must use GroupKFold or GroupShuffleSplit on 'ip.session_id' to prevent multi-flow TCP session leakage across train and test folds."
+  },
+  "operational_limitations": [
+    "Evaluated strictly as a limited binary classification experiment (Attack vs Benign)",
+    "Dataset sample size (4,159 records) is too small for reliable multi-class attack classification",
+    "Deep neural network architectures should not be trained in isolation on this sample without transfer learning"
+  ],
+  "transformations_applied": [
+    "Preserved raw source files in read-only OT folder",
+    "Concatenated 4 testbed partitions (D1, D2, D3, D4) into a unified session dataset",
+    "Audited exact duplicate records (0 duplicates found across all 4,159 rows)",
+    "Investigated session-level data leakage across TCP session identifiers",
+    "Downcast datatypes to float32 and int32 for optimized memory consumption",
+    "Exported compressed Parquet dataset with intact source tracking"
+  ]
+}

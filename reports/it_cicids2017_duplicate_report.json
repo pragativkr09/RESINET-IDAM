@@ -1,0 +1,194 @@
+{
+  "total_flows_ingested": 2830743,
+  "total_duplicate_flows": 308381,
+  "duplicate_percentage": 10.89,
+  "duplicate_distribution_by_class": {
+    "BENIGN": 176613,
+    "PortScan": 68111,
+    "DoS Hulk": 58224,
+    "SSH-Patator": 2678,
+    "FTP-Patator": 2005,
+    "DoS slowloris": 411,
+    "DoS Slowhttptest": 271,
+    "Web Attack - Brute Force": 37,
+    "Bot": 13,
+    "DDoS": 11,
+    "DoS GoldenEye": 7
+  },
+  "per_file_summary": [
+    {
+      "file": "Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv",
+      "size_mb": 73.55,
+      "raw_rows": 225745,
+      "in_file_duplicates": 2633,
+      "whitespace_padded_columns_cleaned": 65,
+      "rate_anomalies": {
+        "Flow Bytes/s": {
+          "inf_count": 30,
+          "nan_count": 4
+        },
+        "Flow Packets/s": {
+          "inf_count": 34,
+          "nan_count": 0
+        }
+      },
+      "label_distribution": {
+        "DDoS": 128027,
+        "BENIGN": 97718
+      }
+    },
+    {
+      "file": "Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv",
+      "size_mb": 73.34,
+      "raw_rows": 286467,
+      "in_file_duplicates": 72353,
+      "whitespace_padded_columns_cleaned": 65,
+      "rate_anomalies": {
+        "Flow Bytes/s": {
+          "inf_count": 356,
+          "nan_count": 15
+        },
+        "Flow Packets/s": {
+          "inf_count": 371,
+          "nan_count": 0
+        }
+      },
+      "label_distribution": {
+        "PortScan": 158930,
+        "BENIGN": 127537
+      }
+    },
+    {
+      "file": "Friday-WorkingHours-Morning.pcap_ISCX.csv",
+      "size_mb": 55.62,
+      "raw_rows": 191033,
+      "in_file_duplicates": 6888,
+      "whitespace_padded_columns_cleaned": 65,
+      "rate_anomalies": {
+        "Flow Bytes/s": {
+          "inf_count": 94,
+          "nan_count": 28
+        },
+        "Flow Packets/s": {
+          "inf_count": 122,
+          "nan_count": 0
+        }
+      },
+      "label_distribution": {
+        "BENIGN": 189067,
+        "Bot": 1966
+      }
+    },
+    {
+      "file": "Monday-WorkingHours.pcap_ISCX.csv",
+      "size_mb": 168.73,
+      "raw_rows": 529918,
+      "in_file_duplicates": 26935,
+      "whitespace_padded_columns_cleaned": 65,
+      "rate_anomalies": {
+        "Flow Bytes/s": {
+          "inf_count": 373,
+          "nan_count": 64
+        },
+        "Flow Packets/s": {
+          "inf_count": 437,
+          "nan_count": 0
+        }
+      },
+      "label_distribution": {
+        "BENIGN": 529918
+      }
+    },
+    {
+      "file": "Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv",
+      "size_mb": 79.25,
+      "raw_rows": 288602,
+      "in_file_duplicates": 35630,
+      "whitespace_padded_columns_cleaned": 65,
+      "rate_anomalies": {
+        "Flow Bytes/s": {
+          "inf_count": 189,
+          "nan_count": 18
+        },
+        "Flow Packets/s": {
+          "inf_count": 207,
+          "nan_count": 0
+        }
+      },
+      "label_distribution": {
+        "BENIGN": 288566,
+        "Infiltration": 36
+      }
+    },
+    {
+      "file": "Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv",
+      "size_mb": 49.61,
+      "raw_rows": 170366,
+      "in_file_duplicates": 6066,
+      "whitespace_padded_columns_cleaned": 65,
+      "rate_anomalies": {
+        "Flow Bytes/s": {
+          "inf_count": 115,
+          "nan_count": 20
+        },
+        "Flow Packets/s": {
+          "inf_count": 135,
+          "nan_count": 0
+        }
+      },
+      "label_distribution": {
+        "BENIGN": 168186,
+        "Web Attack - Brute Force": 1507,
+        "Web Attack - XSS": 652,
+        "Web Attack - SQL Injection": 21
+      }
+    },
+    {
+      "file": "Tuesday-WorkingHours.pcap_ISCX.csv",
+      "size_mb": 128.82,
+      "raw_rows": 445909,
+      "in_file_duplicates": 24065,
+      "whitespace_padded_columns_cleaned": 65,
+      "rate_anomalies": {
+        "Flow Bytes/s": {
+          "inf_count": 63,
+          "nan_count": 201
+        },
+        "Flow Packets/s": {
+          "inf_count": 264,
+          "nan_count": 0
+        }
+      },
+      "label_distribution": {
+        "BENIGN": 432074,
+        "FTP-Patator": 7938,
+        "SSH-Patator": 5897
+      }
+    },
+    {
+      "file": "Wednesday-workingHours.pcap_ISCX.csv",
+      "size_mb": 214.74,
+      "raw_rows": 692703,
+      "in_file_duplicates": 81909,
+      "whitespace_padded_columns_cleaned": 65,
+      "rate_anomalies": {
+        "Flow Bytes/s": {
+          "inf_count": 289,
+          "nan_count": 1008
+        },
+        "Flow Packets/s": {
+          "inf_count": 1297,
+          "nan_count": 0
+        }
+      },
+      "label_distribution": {
+        "BENIGN": 440031,
+        "DoS Hulk": 231073,
+        "DoS GoldenEye": 10293,
+        "DoS slowloris": 5796,
+        "DoS Slowhttptest": 5499,
+        "Heartbleed": 11
+      }
+    }
+  ]
+}

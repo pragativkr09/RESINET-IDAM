@@ -1,0 +1,17 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.env
+.streamlit/secrets.toml
+
+IT/Monday-WorkingHours.pcap_ISCX.csv
+IT/Tuesday-WorkingHours.pcap_ISCX.csv
+IT/Wednesday-workingHours.pcap_ISCX.csv
+
+processed/it_cicids2017_cleaned.parquet
+processed/it_cicids2017_deduplicated.parquet
+
+IT/
+OT/
+scratch/

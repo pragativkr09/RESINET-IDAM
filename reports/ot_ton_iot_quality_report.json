@@ -1,0 +1,192 @@
+{
+  "pipeline": "OT ToN_IoT Telemetry Preprocessing Pipeline",
+  "total_files_processed": 63,
+  "total_telemetry_records": 1728968,
+  "total_unique_telemetry_records": 1516707,
+  "device_breakdown": {
+    "fridge": {
+      "files_ingested": 9,
+      "raw_records": 232382,
+      "duplicate_records": 6772,
+      "unique_records": 225610,
+      "sensor_features": [
+        "date",
+        "time",
+        "fridge_temperature",
+        "temp_condition"
+      ],
+      "scenarios_covered": [
+        "backdoor",
+        "ddos",
+        "dos",
+        "injection",
+        "mitm",
+        "password",
+        "ransomware",
+        "scanning",
+        "xss"
+      ],
+      "parquet_path": "processed\\ot_ton_iot_fridge.parquet",
+      "parquet_size_mb": 1.01
+    },
+    "garage_door": {
+      "files_ingested": 9,
+      "raw_records": 239955,
+      "duplicate_records": 94357,
+      "unique_records": 145598,
+      "sensor_features": [
+        "date",
+        "time",
+        "door_state",
+        "sphone_signal"
+      ],
+      "scenarios_covered": [
+        "backdoor",
+        "ddos",
+        "dos",
+        "injection",
+        "mitm",
+        "password",
+        "ransomware",
+        "scanning",
+        "xss"
+      ],
+      "parquet_path": "processed\\ot_ton_iot_garage_door.parquet",
+      "parquet_size_mb": 0.78
+    },
+    "gps_tracker": {
+      "files_ingested": 9,
+      "raw_records": 236982,
+      "duplicate_records": 0,
+      "unique_records": 236982,
+      "sensor_features": [
+        "date",
+        "time",
+        "latitude",
+        "longitude"
+      ],
+      "scenarios_covered": [
+        "backdoor",
+        "ddos",
+        "dos",
+        "injection",
+        "mitm",
+        "password",
+        "ransomware",
+        "scanning",
+        "xss"
+      ],
+      "parquet_path": "processed\\ot_ton_iot_gps_tracker.parquet",
+      "parquet_size_mb": 3.6
+    },
+    "modbus": {
+      "files_ingested": 9,
+      "raw_records": 376022,
+      "duplicate_records": 70578,
+      "unique_records": 305444,
+      "sensor_features": [
+        "date",
+        "time",
+        "fc1_coil",
+        "fc2_input",
+        "fc3_holding",
+        "fc4_register"
+      ],
+      "scenarios_covered": [
+        "backdoor",
+        "ddos",
+        "dos",
+        "injection",
+        "mitm",
+        "password",
+        "ransomware",
+        "scanning",
+        "xss"
+      ],
+      "parquet_path": "processed\\ot_ton_iot_modbus.parquet",
+      "parquet_size_mb": 4.15
+    },
+    "motion_light": {
+      "files_ingested": 9,
+      "raw_records": 182653,
+      "duplicate_records": 34416,
+      "unique_records": 148237,
+      "sensor_features": [
+        "date",
+        "time",
+        "motion_status",
+        "light_status"
+      ],
+      "scenarios_covered": [
+        "backdoor",
+        "ddos",
+        "dos",
+        "injection",
+        "mitm",
+        "password",
+        "ransomware",
+        "scanning",
+        "xss"
+      ],
+      "parquet_path": "processed\\ot_ton_iot_motion_light.parquet",
+      "parquet_size_mb": 0.75
+    },
+    "thermostat": {
+      "files_ingested": 9,
+      "raw_records": 175342,
+      "duplicate_records": 6138,
+      "unique_records": 169204,
+      "sensor_features": [
+        "date",
+        "time",
+        "current_temperature",
+        "ac_state"
+      ],
+      "scenarios_covered": [
+        "backdoor",
+        "ddos",
+        "dos",
+        "injection",
+        "mitm",
+        "password",
+        "ransomware",
+        "scanning",
+        "xss"
+      ],
+      "parquet_path": "processed\\ot_ton_iot_thermostat.parquet",
+      "parquet_size_mb": 1.56
+    },
+    "weather": {
+      "files_ingested": 9,
+      "raw_records": 285632,
+      "duplicate_records": 0,
+      "unique_records": 285632,
+      "sensor_features": [
+        "date",
+        "time",
+        "temperature",
+        "pressure",
+        "humidity"
+      ],
+      "scenarios_covered": [
+        "backdoor",
+        "ddos",
+        "dos",
+        "injection",
+        "mitm",
+        "password",
+        "ransomware",
+        "scanning",
+        "xss"
+      ],
+      "parquet_path": "processed\\ot_ton_iot_weather.parquet",
+      "parquet_size_mb": 3.51
+    }
+  },
+  "baseline_validation_guarantee": [
+    "Forensic analysis proved no row-level ground-truth labels exist inside the raw testbed CSV or LOG files",
+    "Refused whole-file attack labelling to prevent catastrophic false-positive bias on normal operations",
+    "Preserved unlabelled sensor telemetry for unsupervised and contamination-aware anomaly detection models (Isolation Forest, Robust FastMCD, Autoencoders)",
+    "Standardized heterogeneous schemas, repaired shifted headers, and pruned trailing delimiter NaNs non-destructively"
+  ]
+}

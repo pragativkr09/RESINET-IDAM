@@ -1,0 +1,402 @@
+{
+  "dataset_name": "UNSW-NB15 Preprocessed Partitions (D5 Train & D8 Test)",
+  "source": "UNSW Canberra Cyber (Moustafa & Slay, 2015)",
+  "note": "Pre-transformed binary dataset with encoded xProt, xServ, xState and stripped attack_cat",
+  "train_file": "D5.csv",
+  "test_file": "D8.csv",
+  "total_features": 42,
+  "target_column": "label",
+  "classes": {
+    "0": "Normal",
+    "1": "Attack"
+  },
+  "feature_specifications": {
+    "id": {
+      "dtype": "int64",
+      "min": 1.0,
+      "max": 99999.0,
+      "mean": 34430.927,
+      "std": 28266.7946,
+      "null_count": 0,
+      "synthetic_encoded": false
+    },
+    "dur": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 59.9999885559082,
+      "mean": 1.3594000339508057,
+      "std": 6.480199813842773,
+      "null_count": 0,
+      "synthetic_encoded": false
+    },
+    "xProt": {
+      "dtype": "int32",
+      "min": 2.0,
+      "max": 999.0,
+      "mean": 14.6682,
+      "std": 31.8507,
+      "null_count": 0,
+      "synthetic_encoded": true
+    },
+    "xServ": {
+      "dtype": "int32",
+      "min": 2.0,
+      "max": 999.0,
+      "mean": 539.0408,
+      "std": 495.4145,
+      "null_count": 0,
+      "synthetic_encoded": true
+    },
+    "xState": {
+      "dtype": "int32",
+      "min": 1.0,
+      "max": 999.0,
+      "mean": 1.8543,
+      "std": 9.2832,
+      "null_count": 0,
+      "synthetic_encoded": true
+    },
+    "spkts": {
+      "dtype": "int32",
+      "min": 1.0,
+      "max": 9616.0,
+      "mean": 20.2987,
+      "std": 136.8876,
+      "null_count": 0,
+      "synthetic_encoded": false
+    },
+    "dpkts": {
+      "dtype": "int32",
+      "min": 0.0,
+      "max": 10974.0,
+      "mean": 18.9696,
+      "std": 110.2583,
+      "null_count": 0,
+      "synthetic_encoded": false
+    },
+    "sbytes": {
+      "dtype": "int32",
+      "min": 28.0,
+      "max": 12965233.0,
+      "mean": 8844.8438,
+      "std": 174765.6443,
+      "null_count": 0,
+      "synthetic_encoded": false
+    },
+    "dbytes": {
+      "dtype": "int32",
+      "min": 0.0,
+      "max": 14655550.0,
+      "mean": 14928.9186,
+      "std": 143654.2177,
+      "null_count": 0,
+      "synthetic_encoded": false
+    },
+    "rate": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 1000000.0,
+      "mean": 95406.1796875,
+      "std": 165400.96875,
+      "null_count": 0,
+      "synthetic_encoded": false
+    },
+    "sttl": {
+      "dtype": "int32",
+      "min": 0.0,
+      "max": 255.0,
+      "mean": 179.547,
+      "std": 102.94,
+      "null_count": 0,
+      "synthetic_encoded": false
+    },
+    "dttl": {
+      "dtype": "int32",
+      "min": 0.0,
+      "max": 254.0,
+      "mean": 79.6096,
+      "std": 110.5069,
+      "null_count": 0,
+      "synthetic_encoded": false
+    },
+    "sload": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 5988000256.0,
+      "mean": 73454032.0,
+      "std": 188357440.0,
+      "null_count": 0,
+      "synthetic_encoded": false
+    },
+    "dload": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 22422730.0,
+      "mean": 671205.625,
+      "std": 2421312.25,
+      "null_count": 0,
+      "synthetic_encoded": false
+    },
+    "sloss": {
+      "dtype": "int32",
+      "min": 0.0,
+      "max": 4803.0,
+      "mean": 4.953,
+      "std": 66.0051,
+      "null_count": 0,
+      "synthetic_encoded": false
+    },
+    "dloss": {
+      "dtype": "int32",
+      "min": 0.0,
+      "max": 5484.0,
+      "mean": 6.948,
+      "std": 52.733,
+      "null_count": 0,
+      "synthetic_encoded": false
+    },
+    "sinpkt": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 84371.4921875,
+      "mean": 985.9769287109375,
+      "std": 7242.24560546875,
+      "null_count": 0,
+      "synthetic_encoded": false
+    },
+    "dinpkt": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 56716.82421875,
+      "mean": 88.21630096435547,
+      "std": 987.0932006835938,
+      "null_count": 0,
+      "synthetic_encoded": false
+    },
+    "sjit": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 1460480.0,
+      "mean": 4976.25439453125,
+      "std": 44965.84765625,
+      "null_count": 0,
+      "synthetic_encoded": false
+    },
+    "djit": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 289388.28125,
+      "mean": 604.3538208007812,
+      "std": 4061.043212890625,
+      "null_count": 0,
+      "synthetic_encoded": false
+    },
+    "swin": {
+      "dtype": "int32",
+      "min": 0.0,
+      "max": 255.0,
+      "mean": 116.2573,
+      "std": 127.001,
+      "null_count": 0,
+      "synthetic_encoded": false
+    },
+    "stcpb": {
+      "dtype": "int64",
+      "min": 0.0,
+      "max": 4294958913.0,
+      "mean": 969250421.9105,
+      "std": 1355264249.263,
+      "null_count": 0,
+      "synthetic_encoded": false
+    },
+    "dtcpb": {
+      "dtype": "int64",
+      "min": 0.0,
+      "max": 4294881924.0,
+      "mean": 968877027.0712,
+      "std": 1353999546.2257,
+      "null_count": 0,
+      "synthetic_encoded": false
+    },
+    "dwin": {
+      "dtype": "int32",
+      "min": 0.0,
+      "max": 255.0,
+      "mean": 115.0136,
+      "std": 126.8865,
+      "null_count": 0,
+      "synthetic_encoded": false
+    },
+    "tcprtt": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 2.518893003463745,
+      "mean": 0.0414000004529953,
+      "std": 0.07940000295639038,
+      "null_count": 0,
+      "synthetic_encoded": false
+    },
+    "synack": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 2.1003520488739014,
+      "mean": 0.020999999716877937,
+      "std": 0.04340000078082085,
+      "null_count": 0,
+      "synthetic_encoded": false
+    },
+    "ackdat": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 1.5208840370178223,
+      "mean": 0.020400000736117363,
+      "std": 0.04050000011920929,
+      "null_count": 0,
+      "synthetic_encoded": false
+    },
+    "smean": {
+      "dtype": "int32",
+      "min": 28.0,
+      "max": 1504.0,
+      "mean": 136.7518,
+      "std": 204.6774,
+      "null_count": 0,
+      "synthetic_encoded": false
+    },
+    "dmean": {
+      "dtype": "int32",
+      "min": 0.0,
+      "max": 1458.0,
+      "mean": 124.1734,
+      "std": 258.3171,
+      "null_count": 0,
+      "synthetic_encoded": false
+    },
+    "trans_depth": {
+      "dtype": "int32",
+      "min": 0.0,
+      "max": 172.0,
+      "mean": 0.106,
+      "std": 0.7769,
+      "null_count": 0,
+      "synthetic_encoded": false
+    },
+    "response_body_len": {
+      "dtype": "int32",
+      "min": 0.0,
+      "max": 6558056.0,
+      "mean": 2144.2917,
+      "std": 54207.9673,
+      "null_count": 0,
+      "synthetic_encoded": false
+    },
+    "ct_srv_src": {
+      "dtype": "int32",
+      "min": 1.0,
+      "max": 63.0,
+      "mean": 9.3064,
+      "std": 10.7043,
+      "null_count": 0,
+      "synthetic_encoded": false
+    },
+    "ct_state_ttl": {
+      "dtype": "int32",
+      "min": 0.0,
+      "max": 6.0,
+      "mean": 1.3042,
+      "std": 0.9544,
+      "null_count": 0,
+      "synthetic_encoded": false
+    },
+    "ct_dst_ltm": {
+      "dtype": "int32",
+      "min": 1.0,
+      "max": 51.0,
+      "mean": 6.1939,
+      "std": 8.0525,
+      "null_count": 0,
+      "synthetic_encoded": false
+    },
+    "ct_src_dport_ltm": {
+      "dtype": "int32",
+      "min": 1.0,
+      "max": 51.0,
+      "mean": 5.3835,
+      "std": 8.0471,
+      "null_count": 0,
+      "synthetic_encoded": false
+    },
+    "ct_dst_sport_ltm": {
+      "dtype": "int32",
+      "min": 1.0,
+      "max": 46.0,
+      "mean": 4.2063,
+      "std": 5.7836,
+      "null_count": 0,
+      "synthetic_encoded": false
+    },
+    "ct_dst_src_ltm": {
+      "dtype": "int32",
+      "min": 1.0,
+      "max": 65.0,
+      "mean": 8.7299,
+      "std": 10.9562,
+      "null_count": 0,
+      "synthetic_encoded": false
+    },
+    "is_ftp_login": {
+      "dtype": "int32",
+      "min": 0.0,
+      "max": 4.0,
+      "mean": 0.0149,
+      "std": 0.126,
+      "null_count": 0,
+      "synthetic_encoded": false
+    },
+    "ct_ftp_cmd": {
+      "dtype": "int32",
+      "min": 0.0,
+      "max": 4.0,
+      "mean": 0.0149,
+      "std": 0.126,
+      "null_count": 0,
+      "synthetic_encoded": false
+    },
+    "ct_flw_http_mthd": {
+      "dtype": "int32",
+      "min": 0.0,
+      "max": 30.0,
+      "mean": 0.1331,
+      "std": 0.7012,
+      "null_count": 0,
+      "synthetic_encoded": false
+    },
+    "ct_src_ltm": {
+      "dtype": "int32",
+      "min": 1.0,
+      "max": 60.0,
+      "mean": 6.9558,
+      "std": 8.3215,
+      "null_count": 0,
+      "synthetic_encoded": false
+    },
+    "ct_srv_dst": {
+      "dtype": "int32",
+      "min": 1.0,
+      "max": 62.0,
+      "mean": 9.1008,
+      "std": 10.757,
+      "null_count": 0,
+      "synthetic_encoded": false
+    },
+    "is_sm_ips_ports": {
+      "dtype": "int32",
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.0158,
+      "std": 0.1245,
+      "null_count": 0,
+      "synthetic_encoded": false
+    }
+  }
+}

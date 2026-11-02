@@ -1,0 +1,29 @@
+{
+  "pipeline": "IT UNSW-NB15 Preprocessing Pipeline",
+  "d5_train_raw_rows": 175341,
+  "d5_train_duplicates": 10639,
+  "d5_class_distribution": {
+    "1": 119341,
+    "0": 56000
+  },
+  "d5_parquet_path": "processed\\it_unsw_nb15_d5_train.parquet",
+  "d5_parquet_size_mb": 10.08,
+  "d8_test_raw_rows": 82332,
+  "d8_test_duplicates": 0,
+  "d8_class_distribution": {
+    "1": 45332,
+    "0": 37000
+  },
+  "d8_parquet_path": "processed\\it_unsw_nb15_d8_test.parquet",
+  "d8_parquet_size_mb": 5.04,
+  "total_unique_records": 247034,
+  "isolation_guarantee": "Maintained as a completely separate IT pipeline from CIC-IDS-2017. No cross-dataset merging performed.",
+  "transformations_applied": [
+    "Preserved raw D5.csv and D8.csv files in read-only IT folder",
+    "Verified structural consistency between train and test partitions",
+    "Identified and documented 10,639 duplicate rows in D5 training set",
+    "Documented synthetic integer encoding of protocol, service, and state features (xProt, xServ, xState)",
+    "Downcast datatypes to float32 and int32 for optimized memory consumption",
+    "Exported compressed Parquet files maintaining train/test split boundary"
+  ]
+}

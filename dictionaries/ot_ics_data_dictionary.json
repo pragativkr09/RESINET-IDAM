@@ -1,0 +1,494 @@
+{
+  "dataset_name": "CERTH/ITI OT-ICS Attacks Benchmark (OpenPLC / ScadaBR)",
+  "source": "Information Technologies Institute / CERTH (NATWORK Project 2022)",
+  "total_records": 4159,
+  "total_features": 60,
+  "session_identifier": "ip.session_id",
+  "target_column": "malware",
+  "classes": {
+    "0": "Benign SCADA/Modbus Operation",
+    "1": "Attack Flow (Log4Shell / SCADA Scan)"
+  },
+  "feature_specifications": {
+    "meta.direction": {
+      "dtype": "int32",
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.5004,
+      "std": 0.5001,
+      "null_count": 0
+    },
+    "ip.pkts_per_flow": {
+      "dtype": "int32",
+      "min": 1.0,
+      "max": 622.0,
+      "mean": 1.4359,
+      "std": 11.1012,
+      "null_count": 0
+    },
+    "duration": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 310.0003662109375,
+      "mean": 6.078999996185303,
+      "std": 8.488300323486328,
+      "null_count": 0
+    },
+    "ip.header_len": {
+      "dtype": "int32",
+      "min": 0.0,
+      "max": 12440.0,
+      "mean": 28.7136,
+      "std": 222.0241,
+      "null_count": 0
+    },
+    "ip.payload_len": {
+      "dtype": "int32",
+      "min": 0.0,
+      "max": 116110.0,
+      "mean": 79.1726,
+      "std": 1887.2404,
+      "null_count": 0
+    },
+    "ip.avg_bytes_tot_len": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 880.58642578125,
+      "mean": 44.43069839477539,
+      "std": 24.947500228881836,
+      "null_count": 0
+    },
+    "time_between_pkts_sum": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 309978.75,
+      "mean": 111.46410369873047,
+      "std": 5090.8828125,
+      "null_count": 0
+    },
+    "time_between_pkts_avg": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 864.7604370117188,
+      "mean": 2.0139999389648438,
+      "std": 29.077299118041992,
+      "null_count": 0
+    },
+    "time_between_pkts_max": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 1001.1689453125,
+      "mean": 3.9467999935150146,
+      "std": 50.09450149536133,
+      "null_count": 0
+    },
+    "time_between_pkts_min": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 542.8500366210938,
+      "mean": 0.8917999863624573,
+      "std": 16.152000427246094,
+      "null_count": 0
+    },
+    "time_between_pkts_std": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 507.1075134277344,
+      "mean": 1.2604000568389893,
+      "std": 18.99970054626465,
+      "null_count": 0
+    },
+    "(-0.001, 50.0]": {
+      "dtype": "int32",
+      "min": 0.0,
+      "max": 312.0,
+      "mean": 1.314,
+      "std": 7.0211,
+      "null_count": 0
+    },
+    "(50.0, 100.0]": {
+      "dtype": "int32",
+      "min": 0.0,
+      "max": 3.0,
+      "mean": 0.0031,
+      "std": 0.0743,
+      "null_count": 0
+    },
+    "(100.0, 150.0]": {
+      "dtype": "int32",
+      "min": 0.0,
+      "max": 2.0,
+      "mean": 0.0019,
+      "std": 0.0537,
+      "null_count": 0
+    },
+    "(150.0, 200.0]": {
+      "dtype": "int32",
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.001,
+      "std": 0.031,
+      "null_count": 0
+    },
+    "(200.0, 250.0]": {
+      "dtype": "int32",
+      "min": 0.0,
+      "max": 2.0,
+      "mean": 0.0019,
+      "std": 0.0537,
+      "null_count": 0
+    },
+    "(250.0, 300.0]": {
+      "dtype": "int32",
+      "min": 0.0,
+      "max": 3.0,
+      "mean": 0.0014,
+      "std": 0.0537,
+      "null_count": 0
+    },
+    "(300.0, 350.0]": {
+      "dtype": "int32",
+      "min": 0.0,
+      "max": 3.0,
+      "mean": 0.0012,
+      "std": 0.0559,
+      "null_count": 0
+    },
+    "(350.0, 400.0]": {
+      "dtype": "int32",
+      "min": 0.0,
+      "max": 2.0,
+      "mean": 0.001,
+      "std": 0.038,
+      "null_count": 0
+    },
+    "(400.0, 450.0]": {
+      "dtype": "int32",
+      "min": 0.0,
+      "max": 2.0,
+      "mean": 0.0007,
+      "std": 0.0347,
+      "null_count": 0
+    },
+    "(450.0, 500.0]": {
+      "dtype": "int32",
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.0002,
+      "std": 0.0155,
+      "null_count": 0
+    },
+    "(500.0, 550.0]": {
+      "dtype": "int32",
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.0002,
+      "std": 0.0155,
+      "null_count": 0
+    },
+    "tcp_pkts_per_flow": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 622.0,
+      "mean": 1.3931000232696533,
+      "std": 10.934000015258789,
+      "null_count": 0
+    },
+    "pkts_rate": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 139.01889038085938,
+      "mean": 0.3183000087738037,
+      "std": 2.280600070953369,
+      "null_count": 0
+    },
+    "tcp_bytes_per_flow": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 113158.0,
+      "mean": 42.76240158081055,
+      "std": 1789.637451171875,
+      "null_count": 0
+    },
+    "byte_rate": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 139.01889038085938,
+      "mean": 0.3183000087738037,
+      "std": 2.280600070953369,
+      "null_count": 0
+    },
+    "tcp.tcp_session_payload_up_len": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 622.0,
+      "mean": 1.3931000232696533,
+      "std": 10.934000015258789,
+      "null_count": 0
+    },
+    "tcp.tcp_session_payload_down_len": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 622.0,
+      "mean": 1.3931000232696533,
+      "std": 10.934000015258789,
+      "null_count": 0
+    },
+    "(-0.001, 150.0]": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 622.0,
+      "mean": 1.357300043106079,
+      "std": 10.835100173950195,
+      "null_count": 0
+    },
+    "(150.0, 300.0]": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 21.0,
+      "mean": 0.018799999728798866,
+      "std": 0.3456000089645386,
+      "null_count": 0
+    },
+    "(300.0, 450.0]": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 2.0,
+      "mean": 0.003599999938160181,
+      "std": 0.06379999965429306,
+      "null_count": 0
+    },
+    "(450.0, 600.0]": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 3.0,
+      "mean": 0.002899999963119626,
+      "std": 0.065700002014637,
+      "null_count": 0
+    },
+    "(600.0, 750.0]": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 15.0,
+      "mean": 0.003800000064074993,
+      "std": 0.23309999704360962,
+      "null_count": 0
+    },
+    "(750.0, 900.0]": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 18.0,
+      "mean": 0.0066999997943639755,
+      "std": 0.2849999964237213,
+      "null_count": 0
+    },
+    "(900.0, 1050.0]": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 0.0,
+      "mean": 0.0,
+      "std": 0.0,
+      "null_count": 0
+    },
+    "(1050.0, 1200.0]": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 0.0,
+      "mean": 0.0,
+      "std": 0.0,
+      "null_count": 0
+    },
+    "(1200.0, 1350.0]": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 0.0,
+      "mean": 0.0,
+      "std": 0.0,
+      "null_count": 0
+    },
+    "(1350.0, 1500.0]": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 0.0,
+      "mean": 0.0,
+      "std": 0.0,
+      "null_count": 0
+    },
+    "(1500.0, 10000.0]": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 0.0,
+      "mean": 0.0,
+      "std": 0.0,
+      "null_count": 0
+    },
+    "tcp.fin": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.026000000536441803,
+      "std": 0.1590999960899353,
+      "null_count": 0
+    },
+    "tcp.syn": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.511900007724762,
+      "std": 0.4999000132083893,
+      "null_count": 0
+    },
+    "tcp.rst": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.4846999943256378,
+      "std": 0.4997999966144562,
+      "null_count": 0
+    },
+    "tcp.psh": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 311.0,
+      "mean": 0.20919999480247498,
+      "std": 6.87060022354126,
+      "null_count": 0
+    },
+    "tcp.ack": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 622.0,
+      "mean": 0.8930000066757202,
+      "std": 10.953700065612793,
+      "null_count": 0
+    },
+    "tcp.urg": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 0.0,
+      "mean": 0.0,
+      "std": 0.0,
+      "null_count": 0
+    },
+    "sport_g": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 622.0,
+      "mean": 1.2269999980926514,
+      "std": 9.826899528503418,
+      "null_count": 0
+    },
+    "sport_le": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 311.0,
+      "mean": 0.16609999537467957,
+      "std": 4.836400032043457,
+      "null_count": 0
+    },
+    "dport_g": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 311.0,
+      "mean": 1.1467000246047974,
+      "std": 5.1890997886657715,
+      "null_count": 0
+    },
+    "dport_le": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 622.0,
+      "mean": 0.24650000035762787,
+      "std": 9.653499603271484,
+      "null_count": 0
+    },
+    "mean_tcp_pkts": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 65389.0,
+      "mean": 28904.98828125,
+      "std": 23513.029296875,
+      "null_count": 0
+    },
+    "std_tcp_pkts": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 0.0,
+      "mean": 0.0,
+      "std": 0.0,
+      "null_count": 0
+    },
+    "min_tcp_pkts": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 65389.0,
+      "mean": 28904.98828125,
+      "std": 23513.029296875,
+      "null_count": 0
+    },
+    "max_tcp_pkts": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 65389.0,
+      "mean": 28904.98828125,
+      "std": 23513.029296875,
+      "null_count": 0
+    },
+    "entropy_tcp_pkts": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 0.0,
+      "mean": 0.0,
+      "std": 0.0,
+      "null_count": 0
+    },
+    "mean_tcp_len": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 1229.978271484375,
+      "mean": 1.9104000329971313,
+      "std": 28.751300811767578,
+      "null_count": 0
+    },
+    "std_tcp_len": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 2021.1204833984375,
+      "mean": 3.9170000553131104,
+      "std": 51.736900329589844,
+      "null_count": 0
+    },
+    "min_tcp_len": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 124.0,
+      "mean": 0.09179999679327011,
+      "std": 3.3331000804901123,
+      "null_count": 0
+    },
+    "max_tcp_len": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 7240.0,
+      "mean": 11.348899841308594,
+      "std": 181.5102996826172,
+      "null_count": 0
+    },
+    "entropy_tcp_len": {
+      "dtype": "int32",
+      "min": 0.0,
+      "max": 0.0,
+      "mean": 0.0,
+      "std": 0.0,
+      "null_count": 0
+    },
+    "ssl.tls_version": {
+      "dtype": "int32",
+      "min": 0.0,
+      "max": 0.0,
+      "mean": 0.0,
+      "std": 0.0,
+      "null_count": 0
+    }
+  }
+}

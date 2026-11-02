@@ -1,0 +1,3234 @@
+{
+  "timestamp": "2026-10-31T18:06:53+0530",
+  "step": "B.4",
+  "pipeline": "ToN_IoT Per-Device Anomaly Detection & Baseline Profiling",
+  "paradigms": {
+    "nature": "Unsupervised telemetry profiling and boundary estimation",
+    "supervised_metrics_prohibited": true,
+    "disclaimer": "Score separation across scenario metadata reflects recording environment conditions and simulator artifacts, NOT row-level verified attack detection."
+  },
+  "devices": {
+    "fridge": {
+      "record_counts": {
+        "raw_parquet": 232382,
+        "empty_pruned": 0,
+        "active_telemetry": 232382,
+        "baseline_train": 162667,
+        "holdout_test": 69715
+      },
+      "features": [
+        "fridge_temperature",
+        "temp_condition"
+      ],
+      "feature_audit": {
+        "fridge_temperature": {
+          "dtype": "float32",
+          "train_mean": 7.1496505158373775,
+          "train_std": 3.6278303357113053,
+          "train_min": 1.0,
+          "train_max": 14.0,
+          "test_mean": 7.130277560728998,
+          "test_std": 3.6228463173157963,
+          "zero_variance": false
+        },
+        "temp_condition": {
+          "dtype": "str",
+          "train_mean": 0.5615828656088819,
+          "train_std": 0.4961930578549022,
+          "train_min": 0.0,
+          "train_max": 1.0,
+          "test_mean": 0.56046761815965,
+          "test_std": 0.4963301997200037,
+          "zero_variance": false
+        }
+      },
+      "scenario_distribution": {
+        "train": {
+          "backdoor": 56471,
+          "dos": 40057,
+          "xss": 30328,
+          "ddos": 24085,
+          "injection": 8082,
+          "mitm": 3644
+        },
+        "test": {
+          "password": 54836,
+          "injection": 5729,
+          "ransomware": 4930,
+          "scanning": 4220
+        },
+        "total": {
+          "backdoor": 56471,
+          "password": 54836,
+          "dos": 40057,
+          "xss": 30328,
+          "ddos": 24085,
+          "injection": 13811,
+          "ransomware": 4930,
+          "scanning": 4220,
+          "mitm": 3644
+        }
+      },
+      "models": {
+        "IsolationForest": {
+          "fit_time_seconds": 0.8097589015960693,
+          "score_time_seconds": 1.1444692611694336,
+          "peak_memory_mb": 64.92319965362549,
+          "calibrated_thresholds": {
+            "tau_90": 0.5705478115973455,
+            "tau_95": 0.6049057743756032,
+            "tau_99": 0.648274101425404
+          },
+          "quantiles": {
+            "baseline_train": {
+              "min": 0.44367081167689904,
+              "p25": 0.49731331162909165,
+              "p50_median": 0.5161776633962175,
+              "p75": 0.5365959192835339,
+              "p90": 0.5705478115973455,
+              "p95": 0.6049057743756032,
+              "p99": 0.648274101425404,
+              "max": 0.6798475631376225,
+              "mean": 0.521565854731487,
+              "std": 0.040021682733613985
+            },
+            "holdout_test": {
+              "min": 0.44367081167689904,
+              "p25": 0.49731331162909165,
+              "p50_median": 0.5161776633962175,
+              "p75": 0.5365959192835339,
+              "p90": 0.5705478115973455,
+              "p95": 0.6037328656165977,
+              "p99": 0.648274101425404,
+              "max": 0.6798475631376225,
+              "mean": 0.5215702920339308,
+              "std": 0.039809248154529964
+            }
+          },
+          "empirical_alarm_rates_holdout": {
+            "alarm_rate_tau_90_pct": 12.363193000071721,
+            "alarm_rate_tau_95_pct": 4.958760668435774,
+            "alarm_rate_tau_99_pct": 1.0098257189987807,
+            "nominal_train_tau_90_pct": 10.0,
+            "nominal_train_tau_95_pct": 5.0,
+            "nominal_train_tau_99_pct": 1.0
+          },
+          "score_separation_ratio_holdout_vs_train": 1.0000085076551763,
+          "scenario_breakdown": {
+            "injection": {
+              "count": 5729,
+              "mean_score": 0.5220494399392709,
+              "ssr_vs_baseline": 1.0009271795754975,
+              "alarm_rate_tau_95_pct": 5.131785651946238
+            },
+            "password": {
+              "count": 54836,
+              "mean_score": 0.5215847161051845,
+              "ssr_vs_baseline": 1.0000361629764036,
+              "alarm_rate_tau_95_pct": 4.9730104311036545
+            },
+            "ransomware": {
+              "count": 4930,
+              "mean_score": 0.5211542716872043,
+              "ssr_vs_baseline": 0.9992108704192406,
+              "alarm_rate_tau_95_pct": 4.665314401622718
+            },
+            "scanning": {
+              "count": 4220,
+              "mean_score": 0.5212183924103275,
+              "ssr_vs_baseline": 0.9993338093013425,
+              "alarm_rate_tau_95_pct": 4.881516587677725
+            }
+          },
+          "temporal_deciles": [
+            {
+              "decile": 1,
+              "partition": "baseline_train",
+              "row_range": [
+                0,
+                23238
+              ],
+              "mean_score": 0.5213950135897655,
+              "std_score": 0.04000348731646807,
+              "alarm_rate_tau_95_pct": 4.970307255357604
+            },
+            {
+              "decile": 2,
+              "partition": "baseline_train",
+              "row_range": [
+                23238,
+                46476
+              ],
+              "mean_score": 0.5216506760730266,
+              "std_score": 0.04022726062656639,
+              "alarm_rate_tau_95_pct": 5.030553403907393
+            },
+            {
+              "decile": 3,
+              "partition": "baseline_train",
+              "row_range": [
+                46476,
+                69714
+              ],
+              "mean_score": 0.521721913560346,
+              "std_score": 0.04008764736910452,
+              "alarm_rate_tau_95_pct": 5.099406145107152
+            },
+            {
+              "decile": 4,
+              "partition": "baseline_train",
+              "row_range": [
+                69714,
+                92952
+              ],
+              "mean_score": 0.5214894022906912,
+              "std_score": 0.040009222706340254,
+              "alarm_rate_tau_95_pct": 4.927274292107755
+            },
+            {
+              "decile": 5,
+              "partition": "baseline_train",
+              "row_range": [
+                92952,
+                116190
+              ],
+              "mean_score": 0.5213505434706868,
+              "std_score": 0.039666868787960566,
+              "alarm_rate_tau_95_pct": 4.940184181082709
+            },
+            {
+              "decile": 6,
+              "partition": "baseline_train",
+              "row_range": [
+                116190,
+                139428
+              ],
+              "mean_score": 0.5217666667845463,
+              "std_score": 0.04004565296575378,
+              "alarm_rate_tau_95_pct": 5.120922626732076
+            },
+            {
+              "decile": 7,
+              "partition": "baseline_train",
+              "row_range": [
+                139428,
+                162666
+              ],
+              "mean_score": 0.5215880001037196,
+              "std_score": 0.04010787716094389,
+              "alarm_rate_tau_95_pct": 5.073586367157242
+            },
+            {
+              "decile": 8,
+              "partition": "mixed",
+              "row_range": [
+                162666,
+                185904
+              ],
+              "mean_score": 0.5218432865454253,
+              "std_score": 0.040037855566508025,
+              "alarm_rate_tau_95_pct": 5.052069885532317
+            },
+            {
+              "decile": 9,
+              "partition": "holdout_test",
+              "row_range": [
+                185904,
+                209142
+              ],
+              "mean_score": 0.5214325241569644,
+              "std_score": 0.039598874437359786,
+              "alarm_rate_tau_95_pct": 4.849814958258026
+            },
+            {
+              "decile": 10,
+              "partition": "holdout_test",
+              "row_range": [
+                209142,
+                232382
+              ],
+              "mean_score": 0.5214338441995879,
+              "std_score": 0.03978797718583953,
+              "alarm_rate_tau_95_pct": 4.974182444061962
+            }
+          ],
+          "model_parameters": {
+            "bootstrap": false,
+            "contamination": "auto",
+            "max_features": 1.0,
+            "max_samples": "auto",
+            "n_estimators": 100,
+            "n_jobs": -1,
+            "random_state": 42,
+            "verbose": 0,
+            "warm_start": false
+          }
+        },
+        "OneClassSVM": {
+          "fit_time_seconds": 0.08041810989379883,
+          "score_time_seconds": 2.350935220718384,
+          "peak_memory_mb": 1.0093212127685547,
+          "calibrated_thresholds": {
+            "tau_90": -0.019342684693810952,
+            "tau_95": 7.284710342503331e-05,
+            "tau_99": 0.18399256547102993
+          },
+          "quantiles": {
+            "baseline_train": {
+              "min": -13.02183031535327,
+              "p25": -7.853318713452396,
+              "p50_median": -1.933266518648466,
+              "p75": -0.7788006630632367,
+              "p90": -0.019342684693810952,
+              "p95": 7.284710342503331e-05,
+              "p99": 0.18399256547102993,
+              "max": 0.7704137502448702,
+              "mean": -4.13425484381064,
+              "std": 4.370152888091733
+            },
+            "holdout_test": {
+              "min": -13.02183031535327,
+              "p25": -7.853318713452396,
+              "p50_median": -1.933266518648466,
+              "p75": -0.7788006630632367,
+              "p90": -0.019342684693810952,
+              "p95": 7.284710342503331e-05,
+              "p99": 0.18399256547102993,
+              "max": 0.7704137502448702,
+              "mean": -4.151379421804298,
+              "std": 4.374462990027367
+            }
+          },
+          "empirical_alarm_rates_holdout": {
+            "alarm_rate_tau_90_pct": 10.446819192426307,
+            "alarm_rate_tau_95_pct": 6.2023954672595565,
+            "alarm_rate_tau_99_pct": 1.0141289535967868,
+            "nominal_train_tau_90_pct": 10.0,
+            "nominal_train_tau_95_pct": 5.0,
+            "nominal_train_tau_99_pct": 1.0
+          },
+          "score_separation_ratio_holdout_vs_train": 1.004142119593642,
+          "scenario_breakdown": {
+            "injection": {
+              "count": 5729,
+              "mean_score": -4.162013611187372,
+              "ssr_vs_baseline": 1.0067143338825106,
+              "alarm_rate_tau_95_pct": 6.493279804503403
+            },
+            "password": {
+              "count": 54836,
+              "mean_score": -4.146540191239896,
+              "ssr_vs_baseline": 1.0029715989684689,
+              "alarm_rate_tau_95_pct": 6.17112845575899
+            },
+            "ransomware": {
+              "count": 4930,
+              "mean_score": -4.1809296018080495,
+              "ssr_vs_baseline": 1.0112897631521882,
+              "alarm_rate_tau_95_pct": 6.288032454361055
+            },
+            "scanning": {
+              "count": 4220,
+              "mean_score": -4.16530321062785,
+              "ssr_vs_baseline": 1.0075100273181494,
+              "alarm_rate_tau_95_pct": 6.113744075829384
+            }
+          },
+          "temporal_deciles": [
+            {
+              "decile": 1,
+              "partition": "baseline_train",
+              "row_range": [
+                0,
+                23238
+              ],
+              "mean_score": -4.1272110265153374,
+              "std_score": 4.371644669335129,
+              "alarm_rate_tau_95_pct": 6.089164299853688
+            },
+            {
+              "decile": 2,
+              "partition": "baseline_train",
+              "row_range": [
+                23238,
+                46476
+              ],
+              "mean_score": -4.15974341537224,
+              "std_score": 4.399087927401795,
+              "alarm_rate_tau_95_pct": 6.205353300628282
+            },
+            {
+              "decile": 3,
+              "partition": "baseline_train",
+              "row_range": [
+                46476,
+                69714
+              ],
+              "mean_score": -4.11918215447166,
+              "std_score": 4.346394867298272,
+              "alarm_rate_tau_95_pct": 6.123590670453567
+            },
+            {
+              "decile": 4,
+              "partition": "baseline_train",
+              "row_range": [
+                69714,
+                92952
+              ],
+              "mean_score": -4.158690997964826,
+              "std_score": 4.391471830052687,
+              "alarm_rate_tau_95_pct": 6.1924434116533265
+            },
+            {
+              "decile": 5,
+              "partition": "baseline_train",
+              "row_range": [
+                92952,
+                116190
+              ],
+              "mean_score": -4.123848962677134,
+              "std_score": 4.371959517371206,
+              "alarm_rate_tau_95_pct": 6.30863241242792
+            },
+            {
+              "decile": 6,
+              "partition": "baseline_train",
+              "row_range": [
+                116190,
+                139428
+              ],
+              "mean_score": -4.145239170644981,
+              "std_score": 4.364876762046781,
+              "alarm_rate_tau_95_pct": 6.386091746277649
+            },
+            {
+              "decile": 7,
+              "partition": "baseline_train",
+              "row_range": [
+                139428,
+                162666
+              ],
+              "mean_score": -4.105685172664988,
+              "std_score": 4.3450574941164515,
+              "alarm_rate_tau_95_pct": 6.399001635252604
+            },
+            {
+              "decile": 8,
+              "partition": "mixed",
+              "row_range": [
+                162666,
+                185904
+              ],
+              "mean_score": -4.13971293541453,
+              "std_score": 4.359245671879149,
+              "alarm_rate_tau_95_pct": 6.330148894052845
+            },
+            {
+              "decile": 9,
+              "partition": "holdout_test",
+              "row_range": [
+                185904,
+                209142
+              ],
+              "mean_score": -4.166817376903899,
+              "std_score": 4.381286692691604,
+              "alarm_rate_tau_95_pct": 6.30863241242792
+            },
+            {
+              "decile": 10,
+              "partition": "holdout_test",
+              "row_range": [
+                209142,
+                232382
+              ],
+              "mean_score": -4.147790531417616,
+              "std_score": 4.382766067914976,
+              "alarm_rate_tau_95_pct": 5.96815834767642
+            }
+          ],
+          "model_parameters": {
+            "cache_size": 200,
+            "coef0": 0.0,
+            "degree": 3,
+            "gamma": "scale",
+            "kernel": "rbf",
+            "max_iter": -1,
+            "nu": 0.03,
+            "shrinking": true,
+            "tol": 0.001,
+            "verbose": false
+          }
+        }
+      }
+    },
+    "garage_door": {
+      "record_counts": {
+        "raw_parquet": 239955,
+        "empty_pruned": 28379,
+        "active_telemetry": 211576,
+        "baseline_train": 148103,
+        "holdout_test": 63473
+      },
+      "features": [
+        "door_state",
+        "sphone_signal"
+      ],
+      "feature_audit": {
+        "door_state": {
+          "dtype": "str",
+          "train_mean": 0.10051113076710128,
+          "train_std": 0.300680300916139,
+          "train_min": 0.0,
+          "train_max": 1.0,
+          "test_mean": 0.10111385943629575,
+          "test_std": 0.30147943025386126,
+          "zero_variance": false
+        },
+        "sphone_signal": {
+          "dtype": "str",
+          "train_mean": 0.10051113076710128,
+          "train_std": 0.300680300916139,
+          "train_min": 0.0,
+          "train_max": 1.0,
+          "test_mean": 0.10111385943629575,
+          "test_std": 0.30147943025386126,
+          "zero_variance": false
+        }
+      },
+      "scenario_distribution": {
+        "train": {
+          "backdoor": 56466,
+          "dos": 40057,
+          "ddos": 24082,
+          "xss": 23284,
+          "mitm": 2934,
+          "injection": 1280
+        },
+        "test": {
+          "password": 36543,
+          "injection": 11751,
+          "scanning": 10249,
+          "ransomware": 4930
+        },
+        "total": {
+          "backdoor": 56466,
+          "dos": 40057,
+          "password": 36543,
+          "ddos": 24082,
+          "xss": 23284,
+          "injection": 13031,
+          "scanning": 10249,
+          "ransomware": 4930,
+          "mitm": 2934
+        }
+      },
+      "models": {
+        "IsolationForest": {
+          "fit_time_seconds": 0.729076623916626,
+          "score_time_seconds": 0.2763957977294922,
+          "peak_memory_mb": 38.64872932434082,
+          "calibrated_thresholds": {
+            "tau_90": 0.639601989142547,
+            "tau_95": 0.639601989142547,
+            "tau_99": 0.639601989142547
+          },
+          "quantiles": {
+            "baseline_train": {
+              "min": 0.47400329372750233,
+              "p25": 0.47400329372750233,
+              "p50_median": 0.47400329372750233,
+              "p75": 0.47400329372750233,
+              "p90": 0.639601989142547,
+              "p95": 0.639601989142547,
+              "p99": 0.639601989142547,
+              "max": 0.639601989142547,
+              "mean": 0.49064780585722534,
+              "std": 0.049792265568715674
+            },
+            "holdout_test": {
+              "min": 0.47400329372750233,
+              "p25": 0.47400329372750233,
+              "p50_median": 0.47400329372750233,
+              "p75": 0.47400329372750233,
+              "p90": 0.639601989142547,
+              "p95": 0.639601989142547,
+              "p99": 0.639601989142547,
+              "max": 0.639601989142547,
+              "mean": 0.4907476169385332,
+              "std": 0.04992460034451036
+            }
+          },
+          "empirical_alarm_rates_holdout": {
+            "alarm_rate_tau_90_pct": 10.111385943629575,
+            "alarm_rate_tau_95_pct": 10.111385943629575,
+            "alarm_rate_tau_99_pct": 10.111385943629575,
+            "nominal_train_tau_90_pct": 10.0,
+            "nominal_train_tau_95_pct": 5.0,
+            "nominal_train_tau_99_pct": 1.0
+          },
+          "score_separation_ratio_holdout_vs_train": 1.0002034271428841,
+          "scenario_breakdown": {
+            "injection": {
+              "count": 11751,
+              "mean_score": 0.4908858770912351,
+              "ssr_vs_baseline": 1.0004852181772093,
+              "alarm_rate_tau_95_pct": 10.19487703174198
+            },
+            "password": {
+              "count": 36543,
+              "mean_score": 0.49048476638230687,
+              "ssr_vs_baseline": 0.9996677056883325,
+              "alarm_rate_tau_95_pct": 9.952658511890101
+            },
+            "ransomware": {
+              "count": 4930,
+              "mean_score": 0.49153727324203655,
+              "ssr_vs_baseline": 1.0018128428868793,
+              "alarm_rate_tau_95_pct": 10.588235294117647
+            },
+            "scanning": {
+              "count": 10249,
+              "mean_score": 0.4911464507023645,
+              "ssr_vs_baseline": 1.0010162989402713,
+              "alarm_rate_tau_95_pct": 10.352229485803493
+            }
+          },
+          "temporal_deciles": [
+            {
+              "decile": 1,
+              "partition": "baseline_train",
+              "row_range": [
+                0,
+                21157
+              ],
+              "mean_score": 0.49127778069545636,
+              "std_score": 0.05061842160568981,
+              "alarm_rate_tau_95_pct": 10.431535661955854
+            },
+            {
+              "decile": 2,
+              "partition": "baseline_train",
+              "row_range": [
+                21157,
+                42314
+              ],
+              "mean_score": 0.49065943702963477,
+              "std_score": 0.049807715183272434,
+              "alarm_rate_tau_95_pct": 10.058136786879048
+            },
+            {
+              "decile": 3,
+              "partition": "baseline_train",
+              "row_range": [
+                42314,
+                63471
+              ],
+              "mean_score": 0.49016632752397954,
+              "std_score": 0.04914604408433938,
+              "alarm_rate_tau_95_pct": 9.760363000425391
+            },
+            {
+              "decile": 4,
+              "partition": "baseline_train",
+              "row_range": [
+                63471,
+                84628
+              ],
+              "mean_score": 0.49070639983969716,
+              "std_score": 0.04987001932788152,
+              "alarm_rate_tau_95_pct": 10.08649619511273
+            },
+            {
+              "decile": 5,
+              "partition": "baseline_train",
+              "row_range": [
+                84628,
+                105785
+              ],
+              "mean_score": 0.49056551140950994,
+              "std_score": 0.0496827393243794,
+              "alarm_rate_tau_95_pct": 10.001417970411683
+            },
+            {
+              "decile": 6,
+              "partition": "baseline_train",
+              "row_range": [
+                105785,
+                126942
+              ],
+              "mean_score": 0.49048724005940597,
+              "std_score": 0.04957821619604486,
+              "alarm_rate_tau_95_pct": 9.954152290022215
+            },
+            {
+              "decile": 7,
+              "partition": "baseline_train",
+              "row_range": [
+                126942,
+                148099
+              ],
+              "mean_score": 0.49065943702963477,
+              "std_score": 0.049807715183272434,
+              "alarm_rate_tau_95_pct": 10.058136786879048
+            },
+            {
+              "decile": 8,
+              "partition": "mixed",
+              "row_range": [
+                148099,
+                169256
+              ],
+              "mean_score": 0.49070639983969716,
+              "std_score": 0.04987001932788152,
+              "alarm_rate_tau_95_pct": 10.08649619511273
+            },
+            {
+              "decile": 9,
+              "partition": "holdout_test",
+              "row_range": [
+                169256,
+                190413
+              ],
+              "mean_score": 0.49041679584431236,
+              "std_score": 0.049483850759589026,
+              "alarm_rate_tau_95_pct": 9.911613177671692
+            },
+            {
+              "decile": 10,
+              "partition": "holdout_test",
+              "row_range": [
+                190413,
+                211576
+              ],
+              "mean_score": 0.4911320346557041,
+              "std_score": 0.050429191804222194,
+              "alarm_rate_tau_95_pct": 10.34352407503662
+            }
+          ],
+          "model_parameters": {
+            "bootstrap": false,
+            "contamination": "auto",
+            "max_features": 1.0,
+            "max_samples": "auto",
+            "n_estimators": 100,
+            "n_jobs": -1,
+            "random_state": 42,
+            "verbose": 0,
+            "warm_start": false
+          }
+        },
+        "OneClassSVM": {
+          "fit_time_seconds": 0.057852745056152344,
+          "score_time_seconds": 2.404350519180298,
+          "peak_memory_mb": 0.953495979309082,
+          "calibrated_thresholds": {
+            "tau_90": -5.1954884838778526e-11,
+            "tau_95": -5.1954884838778526e-11,
+            "tau_99": -5.1954884838778526e-11
+          },
+          "quantiles": {
+            "baseline_train": {
+              "min": -8.230927051045e-11,
+              "p25": -8.230927051045e-11,
+              "p50_median": -8.230927051045e-11,
+              "p75": -8.230927051045e-11,
+              "p90": -5.1954884838778526e-11,
+              "p95": -5.1954884838778526e-11,
+              "p99": -5.1954884838778526e-11,
+              "max": -5.1954884838778526e-11,
+              "mean": -7.925831688284961e-11,
+              "std": 9.12696581788272e-12
+            },
+            "holdout_test": {
+              "min": -8.230927051045e-11,
+              "p25": -8.230927051045e-11,
+              "p50_median": -8.230927051045e-11,
+              "p75": -8.230927051045e-11,
+              "p90": -5.1954884838778526e-11,
+              "p95": -5.1954884838778526e-11,
+              "p99": -5.1954884838778526e-11,
+              "max": -5.1954884838778526e-11,
+              "mean": -7.924002142436951e-11,
+              "std": 9.151222898001487e-12
+            }
+          },
+          "empirical_alarm_rates_holdout": {
+            "alarm_rate_tau_90_pct": 10.111385943629575,
+            "alarm_rate_tau_95_pct": 10.111385943629575,
+            "alarm_rate_tau_99_pct": 10.111385943629575,
+            "nominal_train_tau_90_pct": 10.0,
+            "nominal_train_tau_95_pct": 5.0,
+            "nominal_train_tau_99_pct": 1.0
+          },
+          "score_separation_ratio_holdout_vs_train": 0.9997691667045221,
+          "scenario_breakdown": {
+            "injection": {
+              "count": 11751,
+              "mean_score": -7.92146782174824e-11,
+              "ssr_vs_baseline": 0.9994494121616068,
+              "alarm_rate_tau_95_pct": 10.19487703174198
+            },
+            "password": {
+              "count": 36543,
+              "mean_score": -7.928820216116645e-11,
+              "ssr_vs_baseline": 1.0003770617329788,
+              "alarm_rate_tau_95_pct": 9.952658511890101
+            },
+            "ransomware": {
+              "count": 4930,
+              "mean_score": -7.90952767334495e-11,
+              "ssr_vs_baseline": 0.9979429269278945,
+              "alarm_rate_tau_95_pct": 10.588235294117647
+            },
+            "scanning": {
+              "count": 10249,
+              "mean_score": -7.916691484671272e-11,
+              "ssr_vs_baseline": 0.9988467830288147,
+              "alarm_rate_tau_95_pct": 10.352229485803493
+            }
+          },
+          "temporal_deciles": [
+            {
+              "decile": 1,
+              "partition": "baseline_train",
+              "row_range": [
+                0,
+                21157
+              ],
+              "mean_score": -7.914284194414198e-11,
+              "std_score": 9.27840094186386e-12,
+              "alarm_rate_tau_95_pct": 10.431535661955854
+            },
+            {
+              "decile": 2,
+              "partition": "baseline_train",
+              "row_range": [
+                21157,
+                42314
+              ],
+              "mean_score": -7.925618487877647e-11,
+              "std_score": 9.12979774574036e-12,
+              "alarm_rate_tau_95_pct": 10.058136786879048
+            },
+            {
+              "decile": 3,
+              "partition": "baseline_train",
+              "row_range": [
+                42314,
+                63471
+              ],
+              "mean_score": -7.934657228234576e-11,
+              "std_score": 9.008512854730354e-12,
+              "alarm_rate_tau_95_pct": 9.760363000425391
+            },
+            {
+              "decile": 4,
+              "partition": "baseline_train",
+              "row_range": [
+                63471,
+                84628
+              ],
+              "mean_score": -7.924757655462702e-11,
+              "std_score": 9.141218149926924e-12,
+              "alarm_rate_tau_95_pct": 10.08649619511273
+            },
+            {
+              "decile": 5,
+              "partition": "baseline_train",
+              "row_range": [
+                84628,
+                105785
+              ],
+              "mean_score": -7.927340152707538e-11,
+              "std_score": 9.106889561524417e-12,
+              "alarm_rate_tau_95_pct": 10.001417970411683
+            },
+            {
+              "decile": 6,
+              "partition": "baseline_train",
+              "row_range": [
+                105785,
+                126942
+              ],
+              "mean_score": -7.928774873399114e-11,
+              "std_score": 9.087730380704036e-12,
+              "alarm_rate_tau_95_pct": 9.954152290022215
+            },
+            {
+              "decile": 7,
+              "partition": "baseline_train",
+              "row_range": [
+                126942,
+                148099
+              ],
+              "mean_score": -7.925618487877647e-11,
+              "std_score": 9.12979774574036e-12,
+              "alarm_rate_tau_95_pct": 10.058136786879048
+            },
+            {
+              "decile": 8,
+              "partition": "mixed",
+              "row_range": [
+                148099,
+                169256
+              ],
+              "mean_score": -7.924757655462702e-11,
+              "std_score": 9.141218149926924e-12,
+              "alarm_rate_tau_95_pct": 10.08649619511273
+            },
+            {
+              "decile": 9,
+              "partition": "holdout_test",
+              "row_range": [
+                169256,
+                190413
+              ],
+              "mean_score": -7.930066122021533e-11,
+              "std_score": 9.070433113687064e-12,
+              "alarm_rate_tau_95_pct": 9.911613177671692
+            },
+            {
+              "decile": 10,
+              "partition": "holdout_test",
+              "row_range": [
+                190413,
+                211576
+              ],
+              "mean_score": -7.91695573206712e-11,
+              "std_score": 9.243714953789343e-12,
+              "alarm_rate_tau_95_pct": 10.34352407503662
+            }
+          ],
+          "model_parameters": {
+            "cache_size": 200,
+            "coef0": 0.0,
+            "degree": 3,
+            "gamma": "scale",
+            "kernel": "rbf",
+            "max_iter": -1,
+            "nu": 0.03,
+            "shrinking": true,
+            "tol": 0.001,
+            "verbose": false
+          }
+        }
+      }
+    },
+    "gps_tracker": {
+      "record_counts": {
+        "raw_parquet": 236982,
+        "empty_pruned": 0,
+        "active_telemetry": 236982,
+        "baseline_train": 165887,
+        "holdout_test": 71095
+      },
+      "features": [
+        "latitude",
+        "longitude"
+      ],
+      "feature_audit": {
+        "latitude": {
+          "dtype": "float32",
+          "train_mean": 230.53643939258703,
+          "train_std": 226.92497219638722,
+          "train_min": 0.0,
+          "train_max": 856.6875,
+          "test_mean": 170.02168522067592,
+          "test_std": 121.83516991180151,
+          "zero_variance": false
+        },
+        "longitude": {
+          "dtype": "float32",
+          "train_mean": 242.04081017547904,
+          "train_std": 228.31458141095166,
+          "train_min": 10.0,
+          "train_max": 880.0685424804688,
+          "test_mean": 178.5230306450715,
+          "test_std": 121.09701057393065,
+          "zero_variance": false
+        }
+      },
+      "scenario_distribution": {
+        "train": {
+          "backdoor": 56469,
+          "dos": 48492,
+          "ddos": 24084,
+          "xss": 23274,
+          "injection": 10386,
+          "mitm": 3182
+        },
+        "test": {
+          "password": 52698,
+          "scanning": 11196,
+          "ransomware": 4925,
+          "injection": 2276
+        },
+        "total": {
+          "backdoor": 56469,
+          "password": 52698,
+          "dos": 48492,
+          "ddos": 24084,
+          "xss": 23274,
+          "injection": 12662,
+          "scanning": 11196,
+          "ransomware": 4925,
+          "mitm": 3182
+        }
+      },
+      "models": {
+        "IsolationForest": {
+          "fit_time_seconds": 0.8082995414733887,
+          "score_time_seconds": 0.5650033950805664,
+          "peak_memory_mb": 52.3841495513916,
+          "calibrated_thresholds": {
+            "tau_90": 0.574785009580949,
+            "tau_95": 0.5868992109030067,
+            "tau_99": 0.6570435904281225
+          },
+          "quantiles": {
+            "baseline_train": {
+              "min": 0.4263817435930089,
+              "p25": 0.4805508546612843,
+              "p50_median": 0.4945542226509356,
+              "p75": 0.5175948349127022,
+              "p90": 0.574785009580949,
+              "p95": 0.5868992109030067,
+              "p99": 0.6570435904281225,
+              "max": 0.714490337413046,
+              "mean": 0.5045225374304128,
+              "std": 0.04390699714121971
+            },
+            "holdout_test": {
+              "min": 0.42716451113328646,
+              "p25": 0.48329478186019637,
+              "p50_median": 0.49394181855249675,
+              "p75": 0.5046797288474348,
+              "p90": 0.5154949470266377,
+              "p95": 0.5233081214455537,
+              "p99": 0.5351128260883327,
+              "max": 0.5404503438407442,
+              "mean": 0.4950175485432722,
+              "std": 0.016012345642195763
+            }
+          },
+          "empirical_alarm_rates_holdout": {
+            "alarm_rate_tau_90_pct": 0.0,
+            "alarm_rate_tau_95_pct": 0.0,
+            "alarm_rate_tau_99_pct": 0.0,
+            "nominal_train_tau_90_pct": 10.0,
+            "nominal_train_tau_95_pct": 5.0,
+            "nominal_train_tau_99_pct": 1.0
+          },
+          "score_separation_ratio_holdout_vs_train": 0.9811604275687058,
+          "scenario_breakdown": {
+            "injection": {
+              "count": 2276,
+              "mean_score": 0.48666581704690864,
+              "ssr_vs_baseline": 0.9646066943323279,
+              "alarm_rate_tau_95_pct": 0.0
+            },
+            "password": {
+              "count": 52698,
+              "mean_score": 0.49596796946291594,
+              "ssr_vs_baseline": 0.9830442302715233,
+              "alarm_rate_tau_95_pct": 0.0
+            },
+            "ransomware": {
+              "count": 4925,
+              "mean_score": 0.49732065621337196,
+              "ssr_vs_baseline": 0.9857253528182889,
+              "alarm_rate_tau_95_pct": 0.0
+            },
+            "scanning": {
+              "count": 11196,
+              "mean_score": 0.49122873593047245,
+              "ssr_vs_baseline": 0.9736507281366517,
+              "alarm_rate_tau_95_pct": 0.0
+            }
+          },
+          "temporal_deciles": [
+            {
+              "decile": 1,
+              "partition": "baseline_train",
+              "row_range": [
+                0,
+                23698
+              ],
+              "mean_score": 0.506435968472876,
+              "std_score": 0.022907395675720844,
+              "alarm_rate_tau_95_pct": 0.0
+            },
+            {
+              "decile": 2,
+              "partition": "baseline_train",
+              "row_range": [
+                23698,
+                47396
+              ],
+              "mean_score": 0.4541735992057068,
+              "std_score": 0.021310139696470005,
+              "alarm_rate_tau_95_pct": 0.0
+            },
+            {
+              "decile": 3,
+              "partition": "baseline_train",
+              "row_range": [
+                47396,
+                71094
+              ],
+              "mean_score": 0.49362561763519786,
+              "std_score": 0.01255089554730074,
+              "alarm_rate_tau_95_pct": 0.0
+            },
+            {
+              "decile": 4,
+              "partition": "baseline_train",
+              "row_range": [
+                71094,
+                94792
+              ],
+              "mean_score": 0.490476641212921,
+              "std_score": 0.014756657084156376,
+              "alarm_rate_tau_95_pct": 0.0
+            },
+            {
+              "decile": 5,
+              "partition": "baseline_train",
+              "row_range": [
+                94792,
+                118490
+              ],
+              "mean_score": 0.4883473811114341,
+              "std_score": 0.011831536517082818,
+              "alarm_rate_tau_95_pct": 0.0
+            },
+            {
+              "decile": 6,
+              "partition": "baseline_train",
+              "row_range": [
+                118490,
+                142188
+              ],
+              "mean_score": 0.5398824175689081,
+              "std_score": 0.025315903921447194,
+              "alarm_rate_tau_95_pct": 0.0
+            },
+            {
+              "decile": 7,
+              "partition": "baseline_train",
+              "row_range": [
+                142188,
+                165886
+              ],
+              "mean_score": 0.5587172169523359,
+              "std_score": 0.06368722436118239,
+              "alarm_rate_tau_95_pct": 35.015613131909866
+            },
+            {
+              "decile": 8,
+              "partition": "mixed",
+              "row_range": [
+                165886,
+                189584
+              ],
+              "mean_score": 0.4894566262085586,
+              "std_score": 0.011890130143780939,
+              "alarm_rate_tau_95_pct": 0.0
+            },
+            {
+              "decile": 9,
+              "partition": "holdout_test",
+              "row_range": [
+                189584,
+                213282
+              ],
+              "mean_score": 0.495401347464697,
+              "std_score": 0.014465236897423413,
+              "alarm_rate_tau_95_pct": 0.0
+            },
+            {
+              "decile": 10,
+              "partition": "holdout_test",
+              "row_range": [
+                213282,
+                236982
+              ],
+              "mean_score": 0.5001935560675532,
+              "std_score": 0.018991950868950714,
+              "alarm_rate_tau_95_pct": 0.0
+            }
+          ],
+          "model_parameters": {
+            "bootstrap": false,
+            "contamination": "auto",
+            "max_features": 1.0,
+            "max_samples": "auto",
+            "n_estimators": 100,
+            "n_jobs": -1,
+            "random_state": 42,
+            "verbose": 0,
+            "warm_start": false
+          }
+        },
+        "OneClassSVM": {
+          "fit_time_seconds": 0.08901834487915039,
+          "score_time_seconds": 2.525304079055786,
+          "peak_memory_mb": 1.021143913269043,
+          "calibrated_thresholds": {
+            "tau_90": -0.04350921993278409,
+            "tau_95": -0.015592881810837926,
+            "tau_99": 0.02395289948317267
+          },
+          "quantiles": {
+            "baseline_train": {
+              "min": -5.118525220972899,
+              "p25": -3.6627251872716045,
+              "p50_median": -0.8711345718941601,
+              "p75": -0.19756683461696412,
+              "p90": -0.04350921993278409,
+              "p95": -0.015592881810837926,
+              "p99": 0.02395289948317267,
+              "max": 5.347053487202373,
+              "mean": -1.8182369497571587,
+              "std": 1.880154295534023
+            },
+            "holdout_test": {
+              "min": -5.11843056584263,
+              "p25": -3.9998352878205594,
+              "p50_median": -1.6689957427520454,
+              "p75": -0.2700205406672396,
+              "p90": -0.05390428507924417,
+              "p95": -0.021580582107907264,
+              "p99": 0.013368964681654058,
+              "max": 0.04078574937216217,
+              "mean": -2.1164759926104506,
+              "std": 1.8743982701088415
+            }
+          },
+          "empirical_alarm_rates_holdout": {
+            "alarm_rate_tau_90_pct": 8.814965890709614,
+            "alarm_rate_tau_95_pct": 3.607848653210493,
+            "alarm_rate_tau_99_pct": 0.6034179618819889,
+            "nominal_train_tau_90_pct": 10.0,
+            "nominal_train_tau_95_pct": 5.0,
+            "nominal_train_tau_99_pct": 1.0
+          },
+          "score_separation_ratio_holdout_vs_train": 1.1640264998976753,
+          "scenario_breakdown": {
+            "injection": {
+              "count": 2276,
+              "mean_score": -4.323942113883486,
+              "ssr_vs_baseline": 2.3780960531359714,
+              "alarm_rate_tau_95_pct": 0.30755711775043937
+            },
+            "password": {
+              "count": 52698,
+              "mean_score": -1.9244896241030147,
+              "ssr_vs_baseline": 1.058437198936061,
+              "alarm_rate_tau_95_pct": 3.32080913886675
+            },
+            "ransomware": {
+              "count": 4925,
+              "mean_score": -2.530774162189089,
+              "ssr_vs_baseline": 1.3918835839999268,
+              "alarm_rate_tau_95_pct": 0.649746192893401
+            },
+            "scanning": {
+              "count": 11196,
+              "mean_score": -2.389134644844519,
+              "ssr_vs_baseline": 1.31398421155373,
+              "alarm_rate_tau_95_pct": 6.931046802429439
+            }
+          },
+          "temporal_deciles": [
+            {
+              "decile": 1,
+              "partition": "baseline_train",
+              "row_range": [
+                0,
+                23698
+              ],
+              "mean_score": -1.4759870089734408,
+              "std_score": 1.764509109520446,
+              "alarm_rate_tau_95_pct": 4.08473288885138
+            },
+            {
+              "decile": 2,
+              "partition": "baseline_train",
+              "row_range": [
+                23698,
+                47396
+              ],
+              "mean_score": -0.17886648361439025,
+              "std_score": 0.14262144679658245,
+              "alarm_rate_tau_95_pct": 12.655076377753396
+            },
+            {
+              "decile": 3,
+              "partition": "baseline_train",
+              "row_range": [
+                47396,
+                71094
+              ],
+              "mean_score": -2.082008486466026,
+              "std_score": 1.8975792348794385,
+              "alarm_rate_tau_95_pct": 2.7639463245843534
+            },
+            {
+              "decile": 4,
+              "partition": "baseline_train",
+              "row_range": [
+                71094,
+                94792
+              ],
+              "mean_score": -3.3109120210274545,
+              "std_score": 1.636421136786035,
+              "alarm_rate_tau_95_pct": 0.2447463921005992
+            },
+            {
+              "decile": 5,
+              "partition": "baseline_train",
+              "row_range": [
+                94792,
+                118490
+              ],
+              "mean_score": -2.4251417839019904,
+              "std_score": 1.7318409529245948,
+              "alarm_rate_tau_95_pct": 1.9073339522322559
+            },
+            {
+              "decile": 6,
+              "partition": "baseline_train",
+              "row_range": [
+                118490,
+                142188
+              ],
+              "mean_score": -0.2703707339525464,
+              "std_score": 0.2623745255702124,
+              "alarm_rate_tau_95_pct": 8.17790530846485
+            },
+            {
+              "decile": 7,
+              "partition": "baseline_train",
+              "row_range": [
+                142188,
+                165886
+              ],
+              "mean_score": -2.9842745814549256,
+              "std_score": 1.742975945959231,
+              "alarm_rate_tau_95_pct": 5.169212591779897
+            },
+            {
+              "decile": 8,
+              "partition": "mixed",
+              "row_range": [
+                165886,
+                189584
+              ],
+              "mean_score": -3.70204201385404,
+              "std_score": 1.4509112356937157,
+              "alarm_rate_tau_95_pct": 0.181449911384927
+            },
+            {
+              "decile": 9,
+              "partition": "holdout_test",
+              "row_range": [
+                189584,
+                213282
+              ],
+              "mean_score": -0.921338561819154,
+              "std_score": 1.151597517806417,
+              "alarm_rate_tau_95_pct": 6.274791121613638
+            },
+            {
+              "decile": 10,
+              "partition": "holdout_test",
+              "row_range": [
+                213282,
+                236982
+              ],
+              "mean_score": -1.7261653064700342,
+              "std_score": 1.7361229633875357,
+              "alarm_rate_tau_95_pct": 4.367088607594936
+            }
+          ],
+          "model_parameters": {
+            "cache_size": 200,
+            "coef0": 0.0,
+            "degree": 3,
+            "gamma": "scale",
+            "kernel": "rbf",
+            "max_iter": -1,
+            "nu": 0.03,
+            "shrinking": true,
+            "tol": 0.001,
+            "verbose": false
+          }
+        }
+      }
+    },
+    "modbus": {
+      "record_counts": {
+        "raw_parquet": 376022,
+        "empty_pruned": 1876,
+        "active_telemetry": 374146,
+        "baseline_train": 261902,
+        "holdout_test": 112244
+      },
+      "features": [
+        "fc1_coil",
+        "fc2_input",
+        "fc3_holding",
+        "fc4_register"
+      ],
+      "feature_audit": {
+        "fc1_coil": {
+          "dtype": "int32",
+          "train_mean": 32674.50223747814,
+          "train_std": 18924.14589436784,
+          "train_min": 0.0,
+          "train_max": 65533.0,
+          "test_mean": 32831.00265493033,
+          "test_std": 18970.306662319286,
+          "zero_variance": false
+        },
+        "fc2_input": {
+          "dtype": "int32",
+          "train_mean": 32721.965055631495,
+          "train_std": 19000.20161419421,
+          "train_min": 0.0,
+          "train_max": 65535.0,
+          "test_mean": 32670.61348490788,
+          "test_std": 18923.45663953618,
+          "zero_variance": false
+        },
+        "fc3_holding": {
+          "dtype": "int32",
+          "train_mean": 32727.334506800253,
+          "train_std": 18883.84760626233,
+          "train_min": 0.0,
+          "train_max": 65535.0,
+          "test_mean": 32729.544073625315,
+          "test_std": 18897.978256514576,
+          "zero_variance": false
+        },
+        "fc4_register": {
+          "dtype": "int32",
+          "train_mean": 32892.9228680957,
+          "train_std": 18883.695468733946,
+          "train_min": 0.0,
+          "train_max": 65535.0,
+          "test_mean": 32641.657683261466,
+          "test_std": 18831.57270647109,
+          "zero_variance": false
+        }
+      },
+      "scenario_distribution": {
+        "train": {
+          "backdoor": 96263,
+          "ddos": 60478,
+          "dos": 48492,
+          "xss": 23274,
+          "injection": 13811,
+          "mitm": 11812,
+          "password": 7772
+        },
+        "test": {
+          "scanning": 56324,
+          "password": 43050,
+          "ransomware": 12870
+        },
+        "total": {
+          "backdoor": 96263,
+          "ddos": 60478,
+          "scanning": 56324,
+          "password": 50822,
+          "dos": 48492,
+          "xss": 23274,
+          "injection": 13811,
+          "ransomware": 12870,
+          "mitm": 11812
+        }
+      },
+      "models": {
+        "IsolationForest": {
+          "fit_time_seconds": 0.8098158836364746,
+          "score_time_seconds": 1.2101812362670898,
+          "peak_memory_mb": 84.77011013031006,
+          "calibrated_thresholds": {
+            "tau_90": 0.560461870923657,
+            "tau_95": 0.5741506711566137,
+            "tau_99": 0.5982152234391832
+          },
+          "quantiles": {
+            "baseline_train": {
+              "min": 0.4366576791776312,
+              "p25": 0.4882402460030618,
+              "p50_median": 0.51159069176772,
+              "p75": 0.5371612714373571,
+              "p90": 0.560461870923657,
+              "p95": 0.5741506711566137,
+              "p99": 0.5982152234391832,
+              "max": 0.675461217805855,
+              "mean": 0.5141146758069925,
+              "std": 0.03406949700829719
+            },
+            "holdout_test": {
+              "min": 0.4380686458110633,
+              "p25": 0.48865753552238983,
+              "p50_median": 0.5115821933893892,
+              "p75": 0.5365647113791322,
+              "p90": 0.559780041790516,
+              "p95": 0.5735609303552731,
+              "p99": 0.5978358442701747,
+              "max": 0.675461217805855,
+              "mean": 0.5139971295147739,
+              "std": 0.03386863074835362
+            }
+          },
+          "empirical_alarm_rates_holdout": {
+            "alarm_rate_tau_90_pct": 9.672677381419051,
+            "alarm_rate_tau_95_pct": 4.82520223798154,
+            "alarm_rate_tau_99_pct": 0.9871351698086311,
+            "nominal_train_tau_90_pct": 10.0,
+            "nominal_train_tau_95_pct": 5.0,
+            "nominal_train_tau_99_pct": 1.0
+          },
+          "score_separation_ratio_holdout_vs_train": 0.9997713617257976,
+          "scenario_breakdown": {
+            "password": {
+              "count": 43050,
+              "mean_score": 0.5133755394262588,
+              "ssr_vs_baseline": 0.9985623122320452,
+              "alarm_rate_tau_95_pct": 4.504065040650406
+            },
+            "ransomware": {
+              "count": 12870,
+              "mean_score": 0.5148708203671133,
+              "ssr_vs_baseline": 1.0014707702302679,
+              "alarm_rate_tau_95_pct": 5.446775446775447
+            },
+            "scanning": {
+              "count": 56324,
+              "mean_score": 0.5142725902782312,
+              "ssr_vs_baseline": 1.000307158069337,
+              "alarm_rate_tau_95_pct": 4.928627228179817
+            }
+          },
+          "temporal_deciles": [
+            {
+              "decile": 1,
+              "partition": "baseline_train",
+              "row_range": [
+                0,
+                37414
+              ],
+              "mean_score": 0.5145450216329308,
+              "std_score": 0.033939087815134814,
+              "alarm_rate_tau_95_pct": 5.1077136900625435
+            },
+            {
+              "decile": 2,
+              "partition": "baseline_train",
+              "row_range": [
+                37414,
+                74828
+              ],
+              "mean_score": 0.5142589199285402,
+              "std_score": 0.03402844071748913,
+              "alarm_rate_tau_95_pct": 4.776286951408563
+            },
+            {
+              "decile": 3,
+              "partition": "baseline_train",
+              "row_range": [
+                74828,
+                112242
+              ],
+              "mean_score": 0.5141528246699185,
+              "std_score": 0.03444893917781292,
+              "alarm_rate_tau_95_pct": 5.356283744053028
+            },
+            {
+              "decile": 4,
+              "partition": "baseline_train",
+              "row_range": [
+                112242,
+                149656
+              ],
+              "mean_score": 0.5139975720362359,
+              "std_score": 0.03437964893197156,
+              "alarm_rate_tau_95_pct": 5.064948949591062
+            },
+            {
+              "decile": 5,
+              "partition": "baseline_train",
+              "row_range": [
+                149656,
+                187070
+              ],
+              "mean_score": 0.5143584974728146,
+              "std_score": 0.03381916594886184,
+              "alarm_rate_tau_95_pct": 4.9927834500454376
+            },
+            {
+              "decile": 6,
+              "partition": "baseline_train",
+              "row_range": [
+                187070,
+                224484
+              ],
+              "mean_score": 0.5140424186002238,
+              "std_score": 0.034250753726081176,
+              "alarm_rate_tau_95_pct": 5.185224782167103
+            },
+            {
+              "decile": 7,
+              "partition": "baseline_train",
+              "row_range": [
+                224484,
+                261898
+              ],
+              "mean_score": 0.5134482215482954,
+              "std_score": 0.033603080738722445,
+              "alarm_rate_tau_95_pct": 4.522371304859144
+            },
+            {
+              "decile": 8,
+              "partition": "mixed",
+              "row_range": [
+                261898,
+                299312
+              ],
+              "mean_score": 0.513284514176078,
+              "std_score": 0.03335115424141993,
+              "alarm_rate_tau_95_pct": 4.4020954722831025
+            },
+            {
+              "decile": 9,
+              "partition": "holdout_test",
+              "row_range": [
+                299312,
+                336726
+              ],
+              "mean_score": 0.5149664832756403,
+              "std_score": 0.03440723155648411,
+              "alarm_rate_tau_95_pct": 5.48725076174694
+            },
+            {
+              "decile": 10,
+              "partition": "holdout_test",
+              "row_range": [
+                336726,
+                374146
+              ],
+              "mean_score": 0.5137396997031314,
+              "std_score": 0.03381515326355498,
+              "alarm_rate_tau_95_pct": 4.585783003741315
+            }
+          ],
+          "model_parameters": {
+            "bootstrap": false,
+            "contamination": "auto",
+            "max_features": 1.0,
+            "max_samples": "auto",
+            "n_estimators": 100,
+            "n_jobs": -1,
+            "random_state": 42,
+            "verbose": 0,
+            "warm_start": false
+          }
+        },
+        "OneClassSVM": {
+          "fit_time_seconds": 0.09632563591003418,
+          "score_time_seconds": 4.160213470458984,
+          "peak_memory_mb": 1.6926488876342773,
+          "calibrated_thresholds": {
+            "tau_90": -1.7389114797533303,
+            "tau_95": -0.6130066000868304,
+            "tau_99": 1.4312029387269938
+          },
+          "quantiles": {
+            "baseline_train": {
+              "min": -9.607362296623723,
+              "p25": -7.364705418847439,
+              "p50_median": -5.530325458348742,
+              "p75": -3.616083493953022,
+              "p90": -1.7389114797533303,
+              "p95": -0.6130066000868304,
+              "p99": 1.4312029387269938,
+              "max": 6.999477647511895,
+              "mean": -5.305443995201475,
+              "std": 2.5875117796428397
+            },
+            "holdout_test": {
+              "min": -9.599078330171896,
+              "p25": -7.340653617895111,
+              "p50_median": -5.5486594316650475,
+              "p75": -3.6810962056643017,
+              "p90": -1.7868053731658655,
+              "p95": -0.6634450040135498,
+              "p99": 1.5351160373869348,
+              "max": 6.999477647511895,
+              "mean": -5.317812623836864,
+              "std": 2.573662746204544
+            }
+          },
+          "empirical_alarm_rates_holdout": {
+            "alarm_rate_tau_90_pct": 9.721677773422186,
+            "alarm_rate_tau_95_pct": 4.843020562346316,
+            "alarm_rate_tau_99_pct": 1.0833541213784257,
+            "nominal_train_tau_90_pct": 10.0,
+            "nominal_train_tau_95_pct": 5.0,
+            "nominal_train_tau_99_pct": 1.0
+          },
+          "score_separation_ratio_holdout_vs_train": 1.0023313088681316,
+          "scenario_breakdown": {
+            "password": {
+              "count": 43050,
+              "mean_score": -5.376219169294438,
+              "ssr_vs_baseline": 1.013340103892714,
+              "alarm_rate_tau_95_pct": 4.569105691056911
+            },
+            "ransomware": {
+              "count": 12870,
+              "mean_score": -5.257810714469911,
+              "ssr_vs_baseline": 0.9910218106581379,
+              "alarm_rate_tau_95_pct": 5.446775446775447
+            },
+            "scanning": {
+              "count": 56324,
+              "mean_score": -5.286881276482345,
+              "ssr_vs_baseline": 0.9965011941062955,
+              "alarm_rate_tau_95_pct": 4.9144236914991835
+            }
+          },
+          "temporal_deciles": [
+            {
+              "decile": 1,
+              "partition": "baseline_train",
+              "row_range": [
+                0,
+                37414
+              ],
+              "mean_score": -5.272966090728496,
+              "std_score": 2.580821049227734,
+              "alarm_rate_tau_95_pct": 4.947345913294489
+            },
+            {
+              "decile": 2,
+              "partition": "baseline_train",
+              "row_range": [
+                37414,
+                74828
+              ],
+              "mean_score": -5.3029504037157364,
+              "std_score": 2.5852398877760496,
+              "alarm_rate_tau_95_pct": 5.011493024001711
+            },
+            {
+              "decile": 3,
+              "partition": "baseline_train",
+              "row_range": [
+                74828,
+                112242
+              ],
+              "mean_score": -5.307234294381896,
+              "std_score": 2.611017407140491,
+              "alarm_rate_tau_95_pct": 5.142460041695622
+            },
+            {
+              "decile": 4,
+              "partition": "baseline_train",
+              "row_range": [
+                112242,
+                149656
+              ],
+              "mean_score": -5.3137332278358205,
+              "std_score": 2.608589564152053,
+              "alarm_rate_tau_95_pct": 5.064948949591062
+            },
+            {
+              "decile": 5,
+              "partition": "baseline_train",
+              "row_range": [
+                149656,
+                187070
+              ],
+              "mean_score": -5.284309743743498,
+              "std_score": 2.5806114292646756,
+              "alarm_rate_tau_95_pct": 5.06762174587053
+            },
+            {
+              "decile": 6,
+              "partition": "baseline_train",
+              "row_range": [
+                187070,
+                224484
+              ],
+              "mean_score": -5.3116945851630355,
+              "std_score": 2.596401730933423,
+              "alarm_rate_tau_95_pct": 5.121077671459881
+            },
+            {
+              "decile": 7,
+              "partition": "baseline_train",
+              "row_range": [
+                224484,
+                261898
+              ],
+              "mean_score": -5.345211589864813,
+              "std_score": 2.5489064810492086,
+              "alarm_rate_tau_95_pct": 4.650665526273587
+            },
+            {
+              "decile": 8,
+              "partition": "mixed",
+              "row_range": [
+                261898,
+                299312
+              ],
+              "mean_score": -5.38340740975242,
+              "std_score": 2.5380054073616867,
+              "alarm_rate_tau_95_pct": 4.519698508579676
+            },
+            {
+              "decile": 9,
+              "partition": "holdout_test",
+              "row_range": [
+                299312,
+                336726
+              ],
+              "mean_score": -5.243237610893493,
+              "std_score": 2.6220773009809006,
+              "alarm_rate_tau_95_pct": 5.4231036510397175
+            },
+            {
+              "decile": 10,
+              "partition": "holdout_test",
+              "row_range": [
+                336726,
+                374146
+              ],
+              "mean_score": -5.326798118504928,
+              "std_score": 2.558088973101415,
+              "alarm_rate_tau_95_pct": 4.585783003741315
+            }
+          ],
+          "model_parameters": {
+            "cache_size": 200,
+            "coef0": 0.0,
+            "degree": 3,
+            "gamma": "scale",
+            "kernel": "rbf",
+            "max_iter": -1,
+            "nu": 0.03,
+            "shrinking": true,
+            "tol": 0.001,
+            "verbose": false
+          }
+        }
+      }
+    },
+    "motion_light": {
+      "record_counts": {
+        "raw_parquet": 182653,
+        "empty_pruned": 0,
+        "active_telemetry": 182653,
+        "baseline_train": 127857,
+        "holdout_test": 54796
+      },
+      "features": [
+        "motion_status",
+        "light_status"
+      ],
+      "feature_audit": {
+        "motion_status": {
+          "dtype": "str",
+          "train_mean": 0.3754428775898074,
+          "train_std": 0.4842370527509149,
+          "train_min": 0.0,
+          "train_max": 1.0,
+          "test_mean": 0.37402365136141325,
+          "test_std": 0.4838697754393109,
+          "zero_variance": false
+        },
+        "light_status": {
+          "dtype": "str",
+          "train_mean": 0.3754428775898074,
+          "train_std": 0.4842370527509149,
+          "train_min": 0.0,
+          "train_max": 1.0,
+          "test_mean": 0.37402365136141325,
+          "test_std": 0.4838697754393109,
+          "zero_variance": false
+        }
+      },
+      "scenario_distribution": {
+        "train": {
+          "dos": 45137,
+          "backdoor": 42897,
+          "ddos": 19082,
+          "xss": 18410,
+          "mitm": 2331
+        },
+        "test": {
+          "password": 35393,
+          "injection": 10302,
+          "ransomware": 3911,
+          "scanning": 3355,
+          "backdoor": 1835
+        },
+        "total": {
+          "dos": 45137,
+          "backdoor": 44732,
+          "password": 35393,
+          "ddos": 19082,
+          "xss": 18410,
+          "injection": 10302,
+          "ransomware": 3911,
+          "scanning": 3355,
+          "mitm": 2331
+        }
+      },
+      "models": {
+        "IsolationForest": {
+          "fit_time_seconds": 0.7458806037902832,
+          "score_time_seconds": 0.2320537567138672,
+          "peak_memory_mb": 35.620224952697754,
+          "calibrated_thresholds": {
+            "tau_90": 0.5340983103329948,
+            "tau_95": 0.5340983103329948,
+            "tau_99": 0.5340983103329948
+          },
+          "quantiles": {
+            "baseline_train": {
+              "min": 0.4979529477648928,
+              "p25": 0.4979529477648928,
+              "p50_median": 0.4979529477648928,
+              "p75": 0.5340983103329948,
+              "p90": 0.5340983103329948,
+              "p95": 0.5340983103329948,
+              "p99": 0.5340983103329948,
+              "max": 0.5340983103329948,
+              "mean": 0.511523466698988,
+              "std": 0.017502923840590965
+            },
+            "holdout_test": {
+              "min": 0.4979529477648928,
+              "p25": 0.4979529477648928,
+              "p50_median": 0.4979529477648928,
+              "p75": 0.5340983103329948,
+              "p90": 0.5340983103329948,
+              "p95": 0.5340983103329948,
+              "p99": 0.5340983103329948,
+              "max": 0.5340983103329948,
+              "mean": 0.5114721682523965,
+              "std": 0.017489648469000002
+            }
+          },
+          "empirical_alarm_rates_holdout": {
+            "alarm_rate_tau_90_pct": 37.40236513614133,
+            "alarm_rate_tau_95_pct": 37.40236513614133,
+            "alarm_rate_tau_99_pct": 37.40236513614133,
+            "nominal_train_tau_90_pct": 10.0,
+            "nominal_train_tau_95_pct": 5.0,
+            "nominal_train_tau_99_pct": 1.0
+          },
+          "score_separation_ratio_holdout_vs_train": 0.9998997143827584,
+          "scenario_breakdown": {
+            "backdoor": {
+              "count": 1835,
+              "mean_score": 0.5115837874908474,
+              "ssr_vs_baseline": 1.0001179238017148,
+              "alarm_rate_tau_95_pct": 37.711171662125345
+            },
+            "injection": {
+              "count": 10302,
+              "mean_score": 0.511618856054813,
+              "ssr_vs_baseline": 1.0001864808987957,
+              "alarm_rate_tau_95_pct": 37.80819258396428
+            },
+            "password": {
+              "count": 35393,
+              "mean_score": 0.5114519278577127,
+              "ssr_vs_baseline": 0.9998601455340124,
+              "alarm_rate_tau_95_pct": 37.346367925861045
+            },
+            "ransomware": {
+              "count": 3911,
+              "mean_score": 0.511316843002294,
+              "ssr_vs_baseline": 0.9995960621356682,
+              "alarm_rate_tau_95_pct": 36.97264126821785
+            },
+            "scanning": {
+              "count": 3355,
+              "mean_score": 0.5113552819034082,
+              "ssr_vs_baseline": 0.999671208054901,
+              "alarm_rate_tau_95_pct": 37.07898658718331
+            }
+          },
+          "temporal_deciles": [
+            {
+              "decile": 1,
+              "partition": "baseline_train",
+              "row_range": [
+                0,
+                18265
+              ],
+              "mean_score": 0.5114433905038336,
+              "std_score": 0.017482130840106216,
+              "alarm_rate_tau_95_pct": 37.322748425951275
+            },
+            {
+              "decile": 2,
+              "partition": "baseline_train",
+              "row_range": [
+                18265,
+                36530
+              ],
+              "mean_score": 0.5117065896947209,
+              "std_score": 0.017549008742705697,
+              "alarm_rate_tau_95_pct": 38.050917054475775
+            },
+            {
+              "decile": 3,
+              "partition": "baseline_train",
+              "row_range": [
+                36530,
+                54795
+              ],
+              "mean_score": 0.5114552641515427,
+              "std_score": 0.017485238731555577,
+              "alarm_rate_tau_95_pct": 37.355598138516285
+            },
+            {
+              "decile": 4,
+              "partition": "baseline_train",
+              "row_range": [
+                54795,
+                73060
+              ],
+              "mean_score": 0.5114730746231065,
+              "std_score": 0.017489884419134297,
+              "alarm_rate_tau_95_pct": 37.404872707363815
+            },
+            {
+              "decile": 5,
+              "partition": "baseline_train",
+              "row_range": [
+                73060,
+                91325
+              ],
+              "mean_score": 0.5115819163937744,
+              "std_score": 0.01751785450998989,
+              "alarm_rate_tau_95_pct": 37.70599507254311
+            },
+            {
+              "decile": 6,
+              "partition": "baseline_train",
+              "row_range": [
+                91325,
+                109590
+              ],
+              "mean_score": 0.5115284849790828,
+              "std_score": 0.017504213892940223,
+              "alarm_rate_tau_95_pct": 37.55817136600055
+            },
+            {
+              "decile": 7,
+              "partition": "baseline_train",
+              "row_range": [
+                109590,
+                127855
+              ],
+              "mean_score": 0.5114770325056763,
+              "std_score": 0.017490914163686866,
+              "alarm_rate_tau_95_pct": 37.415822611552144
+            },
+            {
+              "decile": 8,
+              "partition": "mixed",
+              "row_range": [
+                127855,
+                146120
+              ],
+              "mean_score": 0.5115522322745012,
+              "std_score": 0.017510297829942643,
+              "alarm_rate_tau_95_pct": 37.62387079113058
+            },
+            {
+              "decile": 9,
+              "partition": "holdout_test",
+              "row_range": [
+                146120,
+                164385
+              ],
+              "mean_score": 0.5115304639203677,
+              "std_score": 0.01750472219893022,
+              "alarm_rate_tau_95_pct": 37.56364631809472
+            },
+            {
+              "decile": 10,
+              "partition": "holdout_test",
+              "row_range": [
+                164385,
+                182653
+              ],
+              "mean_score": 0.5113323511853827,
+              "std_score": 0.01745264884452481,
+              "alarm_rate_tau_95_pct": 37.01554631048828
+            }
+          ],
+          "model_parameters": {
+            "bootstrap": false,
+            "contamination": "auto",
+            "max_features": 1.0,
+            "max_samples": "auto",
+            "n_estimators": 100,
+            "n_jobs": -1,
+            "random_state": 42,
+            "verbose": 0,
+            "warm_start": false
+          }
+        },
+        "OneClassSVM": {
+          "fit_time_seconds": 0.06275320053100586,
+          "score_time_seconds": 1.9071598052978516,
+          "peak_memory_mb": 0.8760709762573242,
+          "calibrated_thresholds": {
+            "tau_90": -6.627001880588068e-08,
+            "tau_95": -6.627001880588068e-08,
+            "tau_99": -6.627001880588068e-08
+          },
+          "quantiles": {
+            "baseline_train": {
+              "min": -6.629971949223545e-08,
+              "p25": -6.629971949223545e-08,
+              "p50_median": -6.629971949223545e-08,
+              "p75": -6.627001880588068e-08,
+              "p90": -6.627001880588068e-08,
+              "p95": -6.627001880588068e-08,
+              "p99": -6.627001880588068e-08,
+              "max": -6.627001880588068e-08,
+              "mean": -6.628856858108403e-08,
+              "std": 1.4382172825114199e-11
+            },
+            "holdout_test": {
+              "min": -6.629971949223545e-08,
+              "p25": -6.629971949223545e-08,
+              "p50_median": -6.629971949223545e-08,
+              "p75": -6.627001880588068e-08,
+              "p90": -6.627001880588068e-08,
+              "p95": -6.627001880588068e-08,
+              "p99": -6.627001880588068e-08,
+              "max": -6.627001880588068e-08,
+              "mean": -6.62886107330771e-08,
+              "std": 1.4371264436877028e-11
+            }
+          },
+          "empirical_alarm_rates_holdout": {
+            "alarm_rate_tau_90_pct": 37.40236513614133,
+            "alarm_rate_tau_95_pct": 37.40236513614133,
+            "alarm_rate_tau_99_pct": 37.40236513614133,
+            "nominal_train_tau_90_pct": 10.0,
+            "nominal_train_tau_95_pct": 5.0,
+            "nominal_train_tau_99_pct": 1.0
+          },
+          "score_separation_ratio_holdout_vs_train": 1.000000635886307,
+          "scenario_breakdown": {
+            "backdoor": {
+              "count": 1835,
+              "mean_score": -6.628851901541938e-08,
+              "ssr_vs_baseline": 0.9999992522743256,
+              "alarm_rate_tau_95_pct": 37.711171662125345
+            },
+            "injection": {
+              "count": 10302,
+              "mean_score": -6.628849019953968e-08,
+              "ssr_vs_baseline": 0.999998817570721,
+              "alarm_rate_tau_95_pct": 37.80819258396428
+            },
+            "password": {
+              "count": 35393,
+              "mean_score": -6.628862736463289e-08,
+              "ssr_vs_baseline": 1.000000886782595,
+              "alarm_rate_tau_95_pct": 37.346367925861045
+            },
+            "ransomware": {
+              "count": 3911,
+              "mean_score": -6.62887383640153e-08,
+              "ssr_vs_baseline": 1.000002561270139,
+              "alarm_rate_tau_95_pct": 36.97264126821785
+            },
+            "scanning": {
+              "count": 3355,
+              "mean_score": -6.628870677872567e-08,
+              "ssr_vs_baseline": 1.0000020847884423,
+              "alarm_rate_tau_95_pct": 37.07898658718331
+            }
+          },
+          "temporal_deciles": [
+            {
+              "decile": 1,
+              "partition": "baseline_train",
+              "row_range": [
+                0,
+                18265
+              ],
+              "mean_score": -6.628863437978648e-08,
+              "std_score": 1.436508719249373e-11,
+              "alarm_rate_tau_95_pct": 37.322748425951275
+            },
+            {
+              "decile": 2,
+              "partition": "baseline_train",
+              "row_range": [
+                18265,
+                36530
+              ],
+              "mean_score": -6.628841810870598e-08,
+              "std_score": 1.4420040842645385e-11,
+              "alarm_rate_tau_95_pct": 38.050917054475775
+            },
+            {
+              "decile": 3,
+              "partition": "baseline_train",
+              "row_range": [
+                36530,
+                54795
+              ],
+              "mean_score": -6.628862462319638e-08,
+              "std_score": 1.4367640950503163e-11,
+              "alarm_rate_tau_95_pct": 37.355598138516285
+            },
+            {
+              "decile": 4,
+              "partition": "baseline_train",
+              "row_range": [
+                54795,
+                73060
+              ],
+              "mean_score": -6.628860998831124e-08,
+              "std_score": 1.4371458317376106e-11,
+              "alarm_rate_tau_95_pct": 37.404872707363815
+            },
+            {
+              "decile": 5,
+              "partition": "baseline_train",
+              "row_range": [
+                73060,
+                91325
+              ],
+              "mean_score": -6.628852055290201e-08,
+              "std_score": 1.4394441373480499e-11,
+              "alarm_rate_tau_95_pct": 37.70599507254311
+            },
+            {
+              "decile": 6,
+              "partition": "baseline_train",
+              "row_range": [
+                91325,
+                109590
+              ],
+              "mean_score": -6.628856445755746e-08,
+              "std_score": 1.4383232862626183e-11,
+              "alarm_rate_tau_95_pct": 37.55817136600055
+            },
+            {
+              "decile": 7,
+              "partition": "baseline_train",
+              "row_range": [
+                109590,
+                127855
+              ],
+              "mean_score": -6.628860673611454e-08,
+              "std_score": 1.4372304459669567e-11,
+              "alarm_rate_tau_95_pct": 37.415822611552144
+            },
+            {
+              "decile": 8,
+              "partition": "mixed",
+              "row_range": [
+                127855,
+                146120
+              ],
+              "mean_score": -6.628854494437726e-08,
+              "std_score": 1.4388232040719103e-11,
+              "alarm_rate_tau_95_pct": 37.62387079113058
+            },
+            {
+              "decile": 9,
+              "partition": "holdout_test",
+              "row_range": [
+                146120,
+                164385
+              ],
+              "mean_score": -6.62885628314591e-08,
+              "std_score": 1.4383650538247858e-11,
+              "alarm_rate_tau_95_pct": 37.56364631809472
+            },
+            {
+              "decile": 10,
+              "partition": "holdout_test",
+              "row_range": [
+                164385,
+                182653
+              ],
+              "mean_score": -6.628872562092327e-08,
+              "std_score": 1.4340861802522158e-11,
+              "alarm_rate_tau_95_pct": 37.01554631048828
+            }
+          ],
+          "model_parameters": {
+            "cache_size": 200,
+            "coef0": 0.0,
+            "degree": 3,
+            "gamma": "scale",
+            "kernel": "rbf",
+            "max_iter": -1,
+            "nu": 0.03,
+            "shrinking": true,
+            "tol": 0.001,
+            "verbose": false
+          }
+        }
+      }
+    },
+    "thermostat": {
+      "record_counts": {
+        "raw_parquet": 175342,
+        "empty_pruned": 4621,
+        "active_telemetry": 170721,
+        "baseline_train": 119504,
+        "holdout_test": 51217
+      },
+      "features": [
+        "current_temperature",
+        "ac_state"
+      ],
+      "feature_audit": {
+        "current_temperature": {
+          "dtype": "float32",
+          "train_mean": 28.69968556708194,
+          "train_std": 2.352510477871249,
+          "train_min": 25.0,
+          "train_max": 34.99665832519531,
+          "test_mean": 28.66903645246025,
+          "test_std": 2.3254896231708804,
+          "zero_variance": false
+        },
+        "ac_state": {
+          "dtype": "str",
+          "train_mean": 0.8888907484268309,
+          "train_std": 0.3142673794526236,
+          "train_min": 0.0,
+          "train_max": 1.0,
+          "test_mean": 0.8937852666106957,
+          "test_std": 0.30811225843893864,
+          "zero_variance": false
+        }
+      },
+      "scenario_distribution": {
+        "train": {
+          "backdoor": 46596,
+          "dos": 40049,
+          "xss": 18410,
+          "ddos": 12118,
+          "mitm": 2331
+        },
+        "test": {
+          "injection": 18416,
+          "password": 12189,
+          "backdoor": 9870,
+          "scanning": 6831,
+          "ransomware": 3911
+        },
+        "total": {
+          "backdoor": 56466,
+          "dos": 40049,
+          "injection": 18416,
+          "xss": 18410,
+          "password": 12189,
+          "ddos": 12118,
+          "scanning": 6831,
+          "ransomware": 3911,
+          "mitm": 2331
+        }
+      },
+      "models": {
+        "IsolationForest": {
+          "fit_time_seconds": 0.7296779155731201,
+          "score_time_seconds": 0.6451501846313477,
+          "peak_memory_mb": 34.90848636627197,
+          "calibrated_thresholds": {
+            "tau_90": 0.5606089560782104,
+            "tau_95": 0.6646222237558972,
+            "tau_99": 0.7015583861664612
+          },
+          "quantiles": {
+            "baseline_train": {
+              "min": 0.4283814798032836,
+              "p25": 0.45171589691449804,
+              "p50_median": 0.46459711169231926,
+              "p75": 0.5044847526395021,
+              "p90": 0.5606089560782104,
+              "p95": 0.6646222237558972,
+              "p99": 0.7015583861664612,
+              "max": 0.7495923375060077,
+              "mean": 0.49115727915923996,
+              "std": 0.06315038989290779
+            },
+            "holdout_test": {
+              "min": 0.4283814798032836,
+              "p25": 0.45161522126325226,
+              "p50_median": 0.4642899728085673,
+              "p75": 0.5015038521978024,
+              "p90": 0.5606089560782104,
+              "p95": 0.6633901390698164,
+              "p99": 0.7001500425135457,
+              "max": 0.7495923375060077,
+              "mean": 0.4899288345756389,
+              "std": 0.06228172818706179
+            }
+          },
+          "empirical_alarm_rates_holdout": {
+            "alarm_rate_tau_90_pct": 14.90520725540348,
+            "alarm_rate_tau_95_pct": 4.750375851767967,
+            "alarm_rate_tau_99_pct": 0.9410937774567039,
+            "nominal_train_tau_90_pct": 10.0,
+            "nominal_train_tau_95_pct": 5.0,
+            "nominal_train_tau_99_pct": 1.0
+          },
+          "score_separation_ratio_holdout_vs_train": 0.9974988773744656,
+          "scenario_breakdown": {
+            "backdoor": {
+              "count": 9870,
+              "mean_score": 0.490596406863514,
+              "ssr_vs_baseline": 0.9988580596897881,
+              "alarm_rate_tau_95_pct": 4.761904761904762
+            },
+            "injection": {
+              "count": 18416,
+              "mean_score": 0.48966625485544746,
+              "ssr_vs_baseline": 0.9969642630435106,
+              "alarm_rate_tau_95_pct": 4.838184187662902
+            },
+            "password": {
+              "count": 12189,
+              "mean_score": 0.4897026778062067,
+              "ssr_vs_baseline": 0.9970384204515441,
+              "alarm_rate_tau_95_pct": 4.545081630978752
+            },
+            "ransomware": {
+              "count": 3911,
+              "mean_score": 0.490195995607307,
+              "ssr_vs_baseline": 0.998042819290842,
+              "alarm_rate_tau_95_pct": 5.139350549731526
+            },
+            "scanning": {
+              "count": 6831,
+              "mean_score": 0.4899227575317908,
+              "ssr_vs_baseline": 0.997486504466426,
+              "alarm_rate_tau_95_pct": 4.640608988435075
+            }
+          },
+          "temporal_deciles": [
+            {
+              "decile": 1,
+              "partition": "baseline_train",
+              "row_range": [
+                0,
+                17072
+              ],
+              "mean_score": 0.4928998756511728,
+              "std_score": 0.0647184805757604,
+              "alarm_rate_tau_95_pct": 5.453373945641987
+            },
+            {
+              "decile": 2,
+              "partition": "baseline_train",
+              "row_range": [
+                17072,
+                34144
+              ],
+              "mean_score": 0.4934080158560067,
+              "std_score": 0.06449778035240486,
+              "alarm_rate_tau_95_pct": 5.47680412371134
+            },
+            {
+              "decile": 3,
+              "partition": "baseline_train",
+              "row_range": [
+                34144,
+                51216
+              ],
+              "mean_score": 0.49054208166674046,
+              "std_score": 0.06277622470365508,
+              "alarm_rate_tau_95_pct": 4.932052483598875
+            },
+            {
+              "decile": 4,
+              "partition": "baseline_train",
+              "row_range": [
+                51216,
+                68288
+              ],
+              "mean_score": 0.4911213017920912,
+              "std_score": 0.06271140311656152,
+              "alarm_rate_tau_95_pct": 4.8031865042174315
+            },
+            {
+              "decile": 5,
+              "partition": "baseline_train",
+              "row_range": [
+                68288,
+                85360
+              ],
+              "mean_score": 0.48971677184017776,
+              "std_score": 0.06221820598393502,
+              "alarm_rate_tau_95_pct": 4.7328959700093725
+            },
+            {
+              "decile": 6,
+              "partition": "baseline_train",
+              "row_range": [
+                85360,
+                102432
+              ],
+              "mean_score": 0.49072543847915806,
+              "std_score": 0.06245099779593838,
+              "alarm_rate_tau_95_pct": 4.8441893158388005
+            },
+            {
+              "decile": 7,
+              "partition": "baseline_train",
+              "row_range": [
+                102432,
+                119504
+              ],
+              "mean_score": 0.4896874688293325,
+              "std_score": 0.06252716166474906,
+              "alarm_rate_tau_95_pct": 4.80904404873477
+            },
+            {
+              "decile": 8,
+              "partition": "holdout_test",
+              "row_range": [
+                119504,
+                136576
+              ],
+              "mean_score": 0.4903398814784389,
+              "std_score": 0.06275899110918987,
+              "alarm_rate_tau_95_pct": 4.832474226804124
+            },
+            {
+              "decile": 9,
+              "partition": "holdout_test",
+              "row_range": [
+                136576,
+                153648
+              ],
+              "mean_score": 0.489633482935337,
+              "std_score": 0.06191660882152985,
+              "alarm_rate_tau_95_pct": 4.66846298031865
+            },
+            {
+              "decile": 10,
+              "partition": "holdout_test",
+              "row_range": [
+                153648,
+                170721
+              ],
+              "mean_score": 0.4898131460896456,
+              "std_score": 0.06216441798387003,
+              "alarm_rate_tau_95_pct": 4.750190359046448
+            }
+          ],
+          "model_parameters": {
+            "bootstrap": false,
+            "contamination": "auto",
+            "max_features": 1.0,
+            "max_samples": "auto",
+            "n_estimators": 100,
+            "n_jobs": -1,
+            "random_state": 42,
+            "verbose": 0,
+            "warm_start": false
+          }
+        },
+        "OneClassSVM": {
+          "fit_time_seconds": 0.09192466735839844,
+          "score_time_seconds": 1.7587189674377441,
+          "peak_memory_mb": 0.8442678451538086,
+          "calibrated_thresholds": {
+            "tau_90": -0.0028617313514160995,
+            "tau_95": 7.877697295555208e-05,
+            "tau_99": 0.6361230977393487
+          },
+          "quantiles": {
+            "baseline_train": {
+              "min": -2.8622969711337376,
+              "p25": -2.200780186683966,
+              "p50_median": -1.111275129789739,
+              "p75": -0.1921682677983032,
+              "p90": -0.0028617313514160995,
+              "p95": 7.877697295555208e-05,
+              "p99": 0.6361230977393487,
+              "max": 6.2749536226970335,
+              "mean": -1.2088746081366226,
+              "std": 1.0849858550169729
+            },
+            "holdout_test": {
+              "min": -2.862296970540335,
+              "p25": -2.210603177517797,
+              "p50_median": -1.122287591240891,
+              "p75": -0.1978178736357208,
+              "p90": -0.0038642690047126353,
+              "p95": 7.877697295555208e-05,
+              "p99": 0.561590776091388,
+              "max": 6.2712448554134355,
+              "mean": -1.216918356226752,
+              "std": 1.083447241966255
+            }
+          },
+          "empirical_alarm_rates_holdout": {
+            "alarm_rate_tau_90_pct": 9.586660679071402,
+            "alarm_rate_tau_95_pct": 7.784524669543316,
+            "alarm_rate_tau_99_pct": 0.9196165335728371,
+            "nominal_train_tau_90_pct": 10.0,
+            "nominal_train_tau_95_pct": 5.0,
+            "nominal_train_tau_99_pct": 1.0
+          },
+          "score_separation_ratio_holdout_vs_train": 1.006653914339824,
+          "scenario_breakdown": {
+            "backdoor": {
+              "count": 9870,
+              "mean_score": -1.224645684793266,
+              "ssr_vs_baseline": 1.0130460814963707,
+              "alarm_rate_tau_95_pct": 8.085106382978724
+            },
+            "injection": {
+              "count": 18416,
+              "mean_score": -1.215460472357964,
+              "ssr_vs_baseline": 1.0054479299813344,
+              "alarm_rate_tau_95_pct": 7.520634231103389
+            },
+            "password": {
+              "count": 12189,
+              "mean_score": -1.211027080124585,
+              "ssr_vs_baseline": 1.001780558523998,
+              "alarm_rate_tau_95_pct": 7.83493313643449
+            },
+            "ransomware": {
+              "count": 3911,
+              "mean_score": -1.2281668098640564,
+              "ssr_vs_baseline": 1.0159588112758617,
+              "alarm_rate_tau_95_pct": 8.028637177192534
+            },
+            "scanning": {
+              "count": 6831,
+              "mean_score": -1.2137556741318787,
+              "ssr_vs_baseline": 1.0040376942012041,
+              "alarm_rate_tau_95_pct": 7.83194261455131
+            }
+          },
+          "temporal_deciles": [
+            {
+              "decile": 1,
+              "partition": "baseline_train",
+              "row_range": [
+                0,
+                17072
+              ],
+              "mean_score": -1.1878112786964021,
+              "std_score": 1.09257852782345,
+              "alarm_rate_tau_95_pct": 8.839034676663543
+            },
+            {
+              "decile": 2,
+              "partition": "baseline_train",
+              "row_range": [
+                17072,
+                34144
+              ],
+              "mean_score": -1.1768833150280644,
+              "std_score": 1.0780824288087951,
+              "alarm_rate_tau_95_pct": 8.92104029990628
+            },
+            {
+              "decile": 3,
+              "partition": "baseline_train",
+              "row_range": [
+                34144,
+                51216
+              ],
+              "mean_score": -1.2144918517841483,
+              "std_score": 1.0881526573341287,
+              "alarm_rate_tau_95_pct": 7.960402999062794
+            },
+            {
+              "decile": 4,
+              "partition": "baseline_train",
+              "row_range": [
+                51216,
+                68288
+              ],
+              "mean_score": -1.2162383716911394,
+              "std_score": 1.0844887832899386,
+              "alarm_rate_tau_95_pct": 7.837394564198688
+            },
+            {
+              "decile": 5,
+              "partition": "baseline_train",
+              "row_range": [
+                68288,
+                85360
+              ],
+              "mean_score": -1.2268689608505827,
+              "std_score": 1.0780942647885452,
+              "alarm_rate_tau_95_pct": 7.97211808809747
+            },
+            {
+              "decile": 6,
+              "partition": "baseline_train",
+              "row_range": [
+                85360,
+                102432
+              ],
+              "mean_score": -1.2176611315550365,
+              "std_score": 1.0821275426526762,
+              "alarm_rate_tau_95_pct": 7.7261012183692594
+            },
+            {
+              "decile": 7,
+              "partition": "baseline_train",
+              "row_range": [
+                102432,
+                119504
+              ],
+              "mean_score": -1.2221673473509842,
+              "std_score": 1.0903029879340036,
+              "alarm_rate_tau_95_pct": 8.07755388940956
+            },
+            {
+              "decile": 8,
+              "partition": "holdout_test",
+              "row_range": [
+                119504,
+                136576
+              ],
+              "mean_score": -1.2163826865145315,
+              "std_score": 1.0903441266773497,
+              "alarm_rate_tau_95_pct": 7.86668228678538
+            },
+            {
+              "decile": 9,
+              "partition": "holdout_test",
+              "row_range": [
+                136576,
+                153648
+              ],
+              "mean_score": -1.2152611841750824,
+              "std_score": 1.0793630687630429,
+              "alarm_rate_tau_95_pct": 7.644095595126522
+            },
+            {
+              "decile": 10,
+              "partition": "holdout_test",
+              "row_range": [
+                153648,
+                170721
+              ],
+              "mean_score": -1.219111069551483,
+              "std_score": 1.0805976815442762,
+              "alarm_rate_tau_95_pct": 7.842792713641423
+            }
+          ],
+          "model_parameters": {
+            "cache_size": 200,
+            "coef0": 0.0,
+            "degree": 3,
+            "gamma": "scale",
+            "kernel": "rbf",
+            "max_iter": -1,
+            "nu": 0.03,
+            "shrinking": true,
+            "tol": 0.001,
+            "verbose": false
+          }
+        }
+      }
+    },
+    "weather": {
+      "record_counts": {
+        "raw_parquet": 285632,
+        "empty_pruned": 0,
+        "active_telemetry": 285632,
+        "baseline_train": 199942,
+        "holdout_test": 85690
+      },
+      "features": [
+        "temperature",
+        "pressure",
+        "humidity"
+      ],
+      "feature_audit": {
+        "temperature": {
+          "dtype": "float32",
+          "train_mean": 36.39910881420894,
+          "train_std": 8.109329103586852,
+          "train_min": 20.523815155029297,
+          "train_max": 50.0,
+          "test_mean": 34.039713675389564,
+          "test_std": 7.821571424573038,
+          "zero_variance": false
+        },
+        "pressure": {
+          "dtype": "float32",
+          "train_mean": 1.7371519706604948,
+          "train_std": 5.559283038263386,
+          "train_min": -15.063655853271484,
+          "train_max": 21.245018005371094,
+          "test_mean": 2.262953573774234,
+          "test_std": 6.382206266455035,
+          "zero_variance": false
+        },
+        "humidity": {
+          "dtype": "float32",
+          "train_mean": 48.056397040562246,
+          "train_std": 26.288631087931208,
+          "train_min": 0.3252715766429901,
+          "train_max": 99.87598419189453,
+          "test_mean": 52.01663032402506,
+          "test_std": 26.06234706300269,
+          "zero_variance": false
+        }
+      },
+      "scenario_distribution": {
+        "train": {
+          "dos": 56947,
+          "backdoor": 56473,
+          "xss": 45069,
+          "ddos": 36054,
+          "mitm": 2945,
+          "injection": 2454
+        },
+        "test": {
+          "password": 52751,
+          "injection": 16213,
+          "scanning": 11798,
+          "ransomware": 4928
+        },
+        "total": {
+          "dos": 56947,
+          "backdoor": 56473,
+          "password": 52751,
+          "xss": 45069,
+          "ddos": 36054,
+          "injection": 18667,
+          "scanning": 11798,
+          "ransomware": 4928,
+          "mitm": 2945
+        }
+      },
+      "models": {
+        "IsolationForest": {
+          "fit_time_seconds": 0.800015926361084,
+          "score_time_seconds": 0.7768514156341553,
+          "peak_memory_mb": 60.51037311553955,
+          "calibrated_thresholds": {
+            "tau_90": 0.5565742219751363,
+            "tau_95": 0.5826555294303895,
+            "tau_99": 0.624417746879153
+          },
+          "quantiles": {
+            "baseline_train": {
+              "min": 0.41058519530863713,
+              "p25": 0.44841368278224636,
+              "p50_median": 0.47536760971955816,
+              "p75": 0.5124785817587825,
+              "p90": 0.5565742219751363,
+              "p95": 0.5826555294303895,
+              "p99": 0.624417746879153,
+              "max": 0.67329784682252,
+              "mean": 0.4855110539140488,
+              "std": 0.04811214019203129
+            },
+            "holdout_test": {
+              "min": 0.4117469315266269,
+              "p25": 0.4495631426367954,
+              "p50_median": 0.48230124415662345,
+              "p75": 0.5379428299749747,
+              "p90": 0.587862773456416,
+              "p95": 0.6063828812335266,
+              "p99": 0.631997917475876,
+              "max": 0.6840821805291402,
+              "mean": 0.4968188457371622,
+              "std": 0.057512242402354447
+            }
+          },
+          "empirical_alarm_rates_holdout": {
+            "alarm_rate_tau_90_pct": 19.27646166413817,
+            "alarm_rate_tau_95_pct": 11.401563776403314,
+            "alarm_rate_tau_99_pct": 1.9022056249270627,
+            "nominal_train_tau_90_pct": 10.0,
+            "nominal_train_tau_95_pct": 5.0,
+            "nominal_train_tau_99_pct": 1.0
+          },
+          "score_separation_ratio_holdout_vs_train": 1.023290493042235,
+          "scenario_breakdown": {
+            "injection": {
+              "count": 16213,
+              "mean_score": 0.4895925796874035,
+              "ssr_vs_baseline": 1.0084066587989102,
+              "alarm_rate_tau_95_pct": 1.5296367112810707
+            },
+            "password": {
+              "count": 52751,
+              "mean_score": 0.5040315340576905,
+              "ssr_vs_baseline": 1.038146361435718,
+              "alarm_rate_tau_95_pct": 16.515326723664007
+            },
+            "ransomware": {
+              "count": 4928,
+              "mean_score": 0.45893933943158816,
+              "ssr_vs_baseline": 0.9452706292302776,
+              "alarm_rate_tau_95_pct": 0.0
+            },
+            "scanning": {
+              "count": 11798,
+              "mean_score": 0.49032224774957256,
+              "ssr_vs_baseline": 1.0099095454093934,
+              "alarm_rate_tau_95_pct": 6.865570435667062
+            }
+          },
+          "temporal_deciles": [
+            {
+              "decile": 1,
+              "partition": "baseline_train",
+              "row_range": [
+                0,
+                28563
+              ],
+              "mean_score": 0.5091740341826542,
+              "std_score": 0.05518142534777397,
+              "alarm_rate_tau_95_pct": 10.923222350593425
+            },
+            {
+              "decile": 2,
+              "partition": "baseline_train",
+              "row_range": [
+                28563,
+                57126
+              ],
+              "mean_score": 0.4900069618614646,
+              "std_score": 0.05720854339528172,
+              "alarm_rate_tau_95_pct": 10.103980674298917
+            },
+            {
+              "decile": 3,
+              "partition": "baseline_train",
+              "row_range": [
+                57126,
+                85689
+              ],
+              "mean_score": 0.4777591423831904,
+              "std_score": 0.045253437144684314,
+              "alarm_rate_tau_95_pct": 3.5255400343101213
+            },
+            {
+              "decile": 4,
+              "partition": "baseline_train",
+              "row_range": [
+                85689,
+                114252
+              ],
+              "mean_score": 0.4812091890592605,
+              "std_score": 0.04338893425913267,
+              "alarm_rate_tau_95_pct": 3.991177397332213
+            },
+            {
+              "decile": 5,
+              "partition": "baseline_train",
+              "row_range": [
+                114252,
+                142815
+              ],
+              "mean_score": 0.47146583747558996,
+              "std_score": 0.03323824147197669,
+              "alarm_rate_tau_95_pct": 0.16104750901515946
+            },
+            {
+              "decile": 6,
+              "partition": "baseline_train",
+              "row_range": [
+                142815,
+                171378
+              ],
+              "mean_score": 0.4926757116577459,
+              "std_score": 0.052433015646468024,
+              "alarm_rate_tau_95_pct": 6.165318769036865
+            },
+            {
+              "decile": 7,
+              "partition": "baseline_train",
+              "row_range": [
+                171378,
+                199941
+              ],
+              "mean_score": 0.47628730316245305,
+              "std_score": 0.03329865961285524,
+              "alarm_rate_tau_95_pct": 0.13303924657774044
+            },
+            {
+              "decile": 8,
+              "partition": "mixed",
+              "row_range": [
+                199941,
+                228504
+              ],
+              "mean_score": 0.47991541306594454,
+              "std_score": 0.041660309642797225,
+              "alarm_rate_tau_95_pct": 1.6594895494170778
+            },
+            {
+              "decile": 9,
+              "partition": "holdout_test",
+              "row_range": [
+                228504,
+                257067
+              ],
+              "mean_score": 0.5029550037982363,
+              "std_score": 0.058252379845137044,
+              "alarm_rate_tau_95_pct": 12.099569372965025
+            },
+            {
+              "decile": 10,
+              "partition": "holdout_test",
+              "row_range": [
+                257067,
+                285632
+              ],
+              "mean_score": 0.50758416827884,
+              "std_score": 0.06598959058869677,
+              "alarm_rate_tau_95_pct": 20.444600035007877
+            }
+          ],
+          "model_parameters": {
+            "bootstrap": false,
+            "contamination": "auto",
+            "max_features": 1.0,
+            "max_samples": "auto",
+            "n_estimators": 100,
+            "n_jobs": -1,
+            "random_state": 42,
+            "verbose": 0,
+            "warm_start": false
+          }
+        },
+        "OneClassSVM": {
+          "fit_time_seconds": 0.13221311569213867,
+          "score_time_seconds": 3.4340012073516846,
+          "peak_memory_mb": 1.3037023544311523,
+          "calibrated_thresholds": {
+            "tau_90": -0.6575223107305791,
+            "tau_95": -0.23837183914044793,
+            "tau_99": 1.057555355125294
+          },
+          "quantiles": {
+            "baseline_train": {
+              "min": -6.804169096191565,
+              "p25": -3.0470711730346185,
+              "p50_median": -2.2493481252701706,
+              "p75": -1.453347157792793,
+              "p90": -0.6575223107305791,
+              "p95": -0.23837183914044793,
+              "p99": 1.057555355125294,
+              "max": 5.591523420879621,
+              "mean": -2.2369440457498855,
+              "std": 1.2591869609101884
+            },
+            "holdout_test": {
+              "min": -6.500642503158417,
+              "p25": -2.919404262564294,
+              "p50_median": -2.1611955123154907,
+              "p75": -1.233622167770223,
+              "p90": 0.017049165085187452,
+              "p95": 3.2748422941357243,
+              "p99": 8.806200814129653,
+              "max": 21.50340076318824,
+              "mean": -1.6491653797361416,
+              "std": 2.4725193585149663
+            }
+          },
+          "empirical_alarm_rates_holdout": {
+            "alarm_rate_tau_90_pct": 15.766133737892401,
+            "alarm_rate_tau_95_pct": 11.683977126852609,
+            "alarm_rate_tau_99_pct": 7.836386976309955,
+            "nominal_train_tau_90_pct": 10.0,
+            "nominal_train_tau_95_pct": 5.0,
+            "nominal_train_tau_99_pct": 1.0
+          },
+          "score_separation_ratio_holdout_vs_train": 0.7372403359259242,
+          "scenario_breakdown": {
+            "injection": {
+              "count": 16213,
+              "mean_score": -2.1612766753335673,
+              "ssr_vs_baseline": 0.9661737759779537,
+              "alarm_rate_tau_95_pct": 3.756244988589404
+            },
+            "password": {
+              "count": 52751,
+              "mean_score": -1.3586557684805105,
+              "ssr_vs_baseline": 0.6073713694635806,
+              "alarm_rate_tau_95_pct": 16.733332069534228
+            },
+            "ransomware": {
+              "count": 4928,
+              "mean_score": -2.0516656036769803,
+              "ssr_vs_baseline": 0.9171734123502429,
+              "alarm_rate_tau_95_pct": 2.2118506493506493
+            },
+            "scanning": {
+              "count": 11798,
+              "mean_score": -2.0762115709756994,
+              "ssr_vs_baseline": 0.9281464035367483,
+              "alarm_rate_tau_95_pct": 3.958298016612985
+            }
+          },
+          "temporal_deciles": [
+            {
+              "decile": 1,
+              "partition": "baseline_train",
+              "row_range": [
+                0,
+                28563
+              ],
+              "mean_score": -2.2939124313149266,
+              "std_score": 1.4728152955876535,
+              "alarm_rate_tau_95_pct": 8.472499387319258
+            },
+            {
+              "decile": 2,
+              "partition": "baseline_train",
+              "row_range": [
+                28563,
+                57126
+              ],
+              "mean_score": -1.9679009437808042,
+              "std_score": 1.262657522897566,
+              "alarm_rate_tau_95_pct": 7.152610019955887
+            },
+            {
+              "decile": 3,
+              "partition": "baseline_train",
+              "row_range": [
+                57126,
+                85689
+              ],
+              "mean_score": -2.10787998779521,
+              "std_score": 1.2462359420774074,
+              "alarm_rate_tau_95_pct": 5.6716731435773555
+            },
+            {
+              "decile": 4,
+              "partition": "baseline_train",
+              "row_range": [
+                85689,
+                114252
+              ],
+              "mean_score": -2.419457308295592,
+              "std_score": 1.2261602178192477,
+              "alarm_rate_tau_95_pct": 2.534747750586423
+            },
+            {
+              "decile": 5,
+              "partition": "baseline_train",
+              "row_range": [
+                114252,
+                142815
+              ],
+              "mean_score": -2.3117633515880134,
+              "std_score": 1.0037825948750405,
+              "alarm_rate_tau_95_pct": 2.4297167664461017
+            },
+            {
+              "decile": 6,
+              "partition": "baseline_train",
+              "row_range": [
+                142815,
+                171378
+              ],
+              "mean_score": -2.30168966419262,
+              "std_score": 1.354415819915363,
+              "alarm_rate_tau_95_pct": 5.643664881139936
+            },
+            {
+              "decile": 7,
+              "partition": "baseline_train",
+              "row_range": [
+                171378,
+                199941
+              ],
+              "mean_score": -2.2559362037199087,
+              "std_score": 1.140592834692031,
+              "alarm_rate_tau_95_pct": 3.098414032139481
+            },
+            {
+              "decile": 8,
+              "partition": "mixed",
+              "row_range": [
+                199941,
+                228504
+              ],
+              "mean_score": -2.069467214112163,
+              "std_score": 1.1049764744348423,
+              "alarm_rate_tau_95_pct": 4.712390155095753
+            },
+            {
+              "decile": 9,
+              "partition": "holdout_test",
+              "row_range": [
+                228504,
+                257067
+              ],
+              "mean_score": -1.7945474049005588,
+              "std_score": 2.5413831335089005,
+              "alarm_rate_tau_95_pct": 13.405454609109688
+            },
+            {
+              "decile": 10,
+              "partition": "holdout_test",
+              "row_range": [
+                257067,
+                285632
+              ],
+              "mean_score": -1.0836101286314803,
+              "std_score": 3.1847323471444184,
+              "alarm_rate_tau_95_pct": 16.933309994748818
+            }
+          ],
+          "model_parameters": {
+            "cache_size": 200,
+            "coef0": 0.0,
+            "degree": 3,
+            "gamma": "scale",
+            "kernel": "rbf",
+            "max_iter": -1,
+            "nu": 0.03,
+            "shrinking": true,
+            "tol": 0.001,
+            "verbose": false
+          }
+        }
+      }
+    }
+  },
+  "summary": {
+    "devices_profiled": 7,
+    "total_active_telemetry_records": 1694092,
+    "total_pipeline_time_seconds": 31.564749479293823,
+    "peak_pipeline_memory_mb": 0.0
+  }
+}

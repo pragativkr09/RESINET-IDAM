@@ -1,0 +1,574 @@
+{
+  "IT": {
+    "D5.csv": {
+      "sha256": "46b708f80b598d69f5365a964ee9a5395c9d6ecd943f135b22adecf4a5c68d71",
+      "size_bytes": 30090070
+    },
+    "D6.csv": {
+      "sha256": "106633b35a7a142b89dd53067096bf9d352b34710a644111a897d80d0d50c8a3",
+      "size_bytes": 52193630
+    },
+    "D7.csv": {
+      "sha256": "270597d42bb985c59e0a09fd9dcd6c2e87c8ddd5fbf2f4418d14621e7f52203c",
+      "size_bytes": 58507759
+    },
+    "D8.csv": {
+      "sha256": "9a2cfb991d81f49e57415aa15a466df433b0026c75de0a25d1bf8e6905f24754",
+      "size_bytes": 14415539
+    },
+    "Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv": {
+      "sha256": "6ff1580f5f81c0ae28a26f7631721018577f5f7c5e0feac28b795fcfe7b411ee",
+      "size_bytes": 77123859
+    },
+    "Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv": {
+      "sha256": "ca1824c51bfbb7b3c72290a11be04366ba8815878c6a1cc5c44cb1cee269e99b",
+      "size_bytes": 76906168
+    },
+    "Friday-WorkingHours-Morning.pcap_ISCX.csv": {
+      "sha256": "53a41c24d570ea83b7ac55b2e94df94e7a8216aeb80a2af0246b6bc8bb543000",
+      "size_bytes": 58316725
+    },
+    "Monday-WorkingHours.pcap_ISCX.csv": {
+      "sha256": "852c4beb34eda186f32561fa79df7a0747e92e1a6535b01270820dd9ffe17f34",
+      "size_bytes": 176927918
+    },
+    "Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv": {
+      "sha256": "6bcda3857c2504676034e3ea57762d38393cc734cb377a726bd5cb153961b1b5",
+      "size_bytes": 83102436
+    },
+    "Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv": {
+      "sha256": "d67066211fb1689c78406f1506f4c44704ecb92088353d5c96d96d6474eb819d",
+      "size_bytes": 52023263
+    },
+    "Tuesday-WorkingHours.pcap_ISCX.csv": {
+      "sha256": "52b8692ae8c7d2ed04671fe2b98335693c0a92c7ab157d8c8b534d6523080851",
+      "size_bytes": 135078995
+    },
+    "Wednesday-workingHours.pcap_ISCX.csv": {
+      "sha256": "893c27dc968bf7a8adef1689f90be55ca4a4dc3088fb63d6ff247ac56856df2a",
+      "size_bytes": 225166395
+    }
+  },
+  "OT": {
+    "D1.csv": {
+      "sha256": "280a79ff9485c260e9d9eecb0799ffa038fb45c8925dcc787c3a1d00d812f1bf",
+      "size_bytes": 1613
+    },
+    "D2.csv": {
+      "sha256": "4efc53d9ea10affcedc50dca020b95fa27c581f1b0a658be3ff880ea87afd912",
+      "size_bytes": 11423
+    },
+    "D3.csv": {
+      "sha256": "592d7069431b91e9b700a5b323404f30a0117eefeed34628cc84c9a3ad8dea5a",
+      "size_bytes": 702960
+    },
+    "D4.csv": {
+      "sha256": "5ca0b27537d56ce4212f787d0316e02da5f01e56772cf2330e3e8b0a7302ede4",
+      "size_bytes": 656101
+    },
+    "IoT_backdoor_normal_fridge.csv": {
+      "sha256": "399e8596826fc15e4399d9004be22fe706a5782087ef254baf808ce06d76fe54",
+      "size_bytes": 2071369
+    },
+    "IoT_backdoor_normal_fridge.log": {
+      "sha256": "503af9cb118b1da6f81706a671cb395629d05a8908bd112fc44ad9b4105f3a04",
+      "size_bytes": 5748551
+    },
+    "IoT_backdoor_normal_Garage-door.csv": {
+      "sha256": "592e4e5434b8011f7022204c89911488d668fee5ffcd5009c5a6d37e9efa63bc",
+      "size_bytes": 1896282
+    },
+    "IoT_backdoor_normal_Garage-door.log": {
+      "sha256": "a1bd583517b48b16563fe979f9eaf1e4df10cb62bfc533938a745f98d79a2a97",
+      "size_bytes": 1896282
+    },
+    "IoT_backdoor_normal_GPS_Tracker.csv": {
+      "sha256": "c8bb913b94800b241f76285b7693fc8fef158fe8c9d0019376ec25bf2bf0f3d3",
+      "size_bytes": 2584858
+    },
+    "IoT_backdoor_normal_GPS_Tracker.log": {
+      "sha256": "c90f2746974f2550fd7e4478ec2038723bff7c1617528d4e4ca498620ba6b28e",
+      "size_bytes": 2584858
+    },
+    "IoT_backdoor_normal_modbus_data.csv": {
+      "sha256": "0a16d86f6e8bad680aae8935979d4a2b52e8578e172cc9ae0f4c300e4239c867",
+      "size_bytes": 4205363
+    },
+    "IoT_backdoor_normal_modbus_data.log": {
+      "sha256": "522eacf1929fca3765077d2a0df63722a1cd51de7e726463b0e82bf538d87708",
+      "size_bytes": 4205363
+    },
+    "IoT_backdoor_normal_Motion_Light.csv": {
+      "sha256": "d85e81c91f222e05dbe96a71259c997641aab7747de9c8817ac9dc1565b5e12e",
+      "size_bytes": 1466578
+    },
+    "IoT_backdoor_normal_Motion_Light.log": {
+      "sha256": "3e12c29a02f03c08d43d6e15acaf655b11b274b1a74af8d91c2e4fdb645c80f0",
+      "size_bytes": 5585859
+    },
+    "IoT_backdoor_normal_Thermostat.csv": {
+      "sha256": "c2e6f2a18481aaab63e4bd309b0c0aab391ba6816e4c6e6e9dbae589ec228b5d",
+      "size_bytes": 2112178
+    },
+    "IoT_backdoor_normal_Thermostat.log": {
+      "sha256": "6cf326139a139af6499800651901e9c25c78bb511a3142de4715ad34f73f6f2d",
+      "size_bytes": 2112178
+    },
+    "IoT_backdoor_normal_weather.csv": {
+      "sha256": "520935ee60fce1987da257e8d0add1776ff7a14e06de3d5c4e006199752825db",
+      "size_bytes": 3270276
+    },
+    "IoT_backdoor_normal_weather.log": {
+      "sha256": "c75bd2b480b2f832cce6969521bb2f2dc50841c36dcc95e4788fc757361f55cb",
+      "size_bytes": 8149174
+    },
+    "IoT_DDoS_normal_fridge.csv": {
+      "sha256": "39d4011374853243ce6abf18de15530f2582e57c36be3ed137e97076a5c6c83e",
+      "size_bytes": 1103122
+    },
+    "IoT_DDoS_normal_fridge.log": {
+      "sha256": "ee58f3765aa2a3e4a8255ae7641c8a98e5b347b8e3d98bd01700ab0ff83dd546",
+      "size_bytes": 2451844
+    },
+    "IoT_DDoS_normal_Garage-door.csv": {
+      "sha256": "e27f6b03771702913bc81c39cae77ec9f3788e4c2aa8394fc099ef7198b3f30e",
+      "size_bytes": 835409
+    },
+    "IoT_DDoS_normal_Garage-door.log": {
+      "sha256": "64317db68abe9a3453a52a4d11e34f0259793565ed6a5059175116427702d2e8",
+      "size_bytes": 2831660
+    },
+    "IoT_DDoS_normal_GPS_Tracker.csv": {
+      "sha256": "2e4b70c0498f3c336b1894aa4834b60c760ea4899a28e6c4e546de48a75dedb9",
+      "size_bytes": 1102404
+    },
+    "IoT_DDoS_normal_GPS_Tracker.log": {
+      "sha256": "ba40ac488c6029f810fcd80910209e39f925088b1604cf5d376c451afb1b6711",
+      "size_bytes": 2476062
+    },
+    "IoT_DDoS_normal_modbus.csv": {
+      "sha256": "76d96d71a89b11087822347dd5773c7a67bda9c724956388c886811c6334b7eb",
+      "size_bytes": 2827425
+    },
+    "IoT_DDoS_normal_modbus.log": {
+      "sha256": "1f2432c6e0f47ab93550c0bbb26a791896295925c7de36cbe75232d88d558dc4",
+      "size_bytes": 1530852
+    },
+    "IoT_DDoS_normal_Motion_Light.csv": {
+      "sha256": "4e7680dc9905f24c1e4934032673d6f518c0f31936aa1a10b2d966544513de65",
+      "size_bytes": 641374
+    },
+    "IoT_DDoS_normal_Motion_Light.log": {
+      "sha256": "a7231948baf1edfe3e3cb94b310dfd50ff199bfa2e5a7236050f0fa4af9f2337",
+      "size_bytes": 2382990
+    },
+    "IoT_DDoS_normal_Thermostat.csv": {
+      "sha256": "e05f1337ff4b00e386d963ea57e1ba6bf7027ed23c9c223fb4e5fe1bf63c211d",
+      "size_bytes": 200263
+    },
+    "IoT_DDoS_normal_Thermostat.log": {
+      "sha256": "63e72f766c0b51b15590a9b16bfd50f052230873e740f5c22d8ff772e9c14d90",
+      "size_bytes": 2007796
+    },
+    "IoT_DDoS_normal_weather.csv": {
+      "sha256": "13b8ad6fa28a938286b6181d6c155e01ffd781d225e66e274f86cab26125e555",
+      "size_bytes": 2060693
+    },
+    "IoT_DDoS_normal_weather.log": {
+      "sha256": "fb3589d6036970eb5182a5d35bbeb4f2012451ddcca65aa84dc5655c8eaacc02",
+      "size_bytes": 5211524
+    },
+    "IoT_DoS_normal_fridge.csv": {
+      "sha256": "491bddd6664f8f3ab2c3fa9b534989ba2e04b68ded0156b90245d1782f973a38",
+      "size_bytes": 1190711
+    },
+    "IoT_DoS_normal_fridge.log": {
+      "sha256": "92edf120b9bce4c0fd253c7a733a12ce620d9150e0455911c035d6efa86ac0d8",
+      "size_bytes": 4077634
+    },
+    "IoT_DoS_normal_Garage_door.csv": {
+      "sha256": "1d619c7861d11f955e383fd44a215550b6ea78d0bca36302139aea41d0195e7b",
+      "size_bytes": 1347221
+    },
+    "IoT_DoS_normal_Garage_door.log": {
+      "sha256": "ff150054a609fb0a9d71b046e53bdc0a851a8cc14ac9f91f1e8d43588745db59",
+      "size_bytes": 6697248
+    },
+    "IoT_DoS_normal_GPS_Tracker.csv": {
+      "sha256": "9023dcb5db4049f6fc28f0fa966e2c975c700df2e12840a8870c39649cf4f623",
+      "size_bytes": 2168151
+    },
+    "IoT_DoS_normal_GPS_Tracker.log": {
+      "sha256": "0e7cab90e8707a7da2871d12c9a92b986032c700f7575d215b577f8402e67427",
+      "size_bytes": 4993372
+    },
+    "IoT_DoS_normal_modbus.csv": {
+      "sha256": "663aec327f2d20955bd6c318a1fed93779d49bab2f87cdf46cc890f909968c1b",
+      "size_bytes": 2154695
+    },
+    "IoT_DoS_normal_modbus.log": {
+      "sha256": "ae5d2d79fcf430c574fce5ad65c105ec8128db15a954f1e66456d10247971893",
+      "size_bytes": 1235957
+    },
+    "IoT_DoS_normal_Motion_Light.csv": {
+      "sha256": "4460b2dec38d80d6d60748ac85184f04fc76c7f6d9a2ce1f4649c4ca96a8847a",
+      "size_bytes": 1428795
+    },
+    "IoT_DoS_normal_Motion_Light.log": {
+      "sha256": "a6ed1061f092d41f7a335a52b64c031458d14f0d1c11d32f970075df9ba35a93",
+      "size_bytes": 5636295
+    },
+    "IoT_DoS_normal_Thermostat.csv": {
+      "sha256": "a798a030b514f8a91cc6d020c61c00b00a10451087172b3ce04fede0d464bb27",
+      "size_bytes": 1518969
+    },
+    "IoT_DoS_normal_Thermostat.log": {
+      "sha256": "7acee443d8ccc1c8d19c823e9efb084ece1f99c02a90b2b85f7c02bece62c1d4",
+      "size_bytes": 6626190
+    },
+    "IoT_DoS_normal_weather.csv": {
+      "sha256": "beae3eb4468b800dbd064cc4d86c04b66c08a41df33971d50fb455d3607ab9f7",
+      "size_bytes": 3184743
+    },
+    "IoT_DoS_normal_weather.log": {
+      "sha256": "8495d95cea6be5031b6200aeade4edac249ef8ede562b477bed491edf7578210",
+      "size_bytes": 8175184
+    },
+    "IoT_injection_normal_fridge.csv": {
+      "sha256": "8ab08cbdaff8b3701c7482052f7ada924c994ccdc3db8a0146acd40360ea6021",
+      "size_bytes": 425274
+    },
+    "IoT_injection_normal_fridge.log": {
+      "sha256": "1ed4f222a627af9f8fe4f276c13ec0d1b11ae53472f7296da88d5d9198a2832a",
+      "size_bytes": 1405810
+    },
+    "IoT_injection_normal_Garage_door.csv": {
+      "sha256": "f667cacb6eae2967cf14ed91cd5911aa50afa25780b6800af7dabc7115d66913",
+      "size_bytes": 456019
+    },
+    "IoT_injection_normal_Garage_door.log": {
+      "sha256": "e4f7d855c7919882daec6eb91b7373bc5c3c048df26abec832628e6abdf9d2e7",
+      "size_bytes": 1532322
+    },
+    "IoT_injection_normal_GPS_Tracker.csv": {
+      "sha256": "9fdfab102a7a4aeb5c104665b49302cc85b4bf253781044bbfe1f01f61390849",
+      "size_bytes": 542547
+    },
+    "IoT_injection_normal_GPS_Tracker.log": {
+      "sha256": "540efa21462b363982ca4542d501cc22a2658bcb2170f93360365ada01c0dbbb",
+      "size_bytes": 1298681
+    },
+    "IoT_injection_normal_modbus.csv": {
+      "sha256": "806560a933430b586ee780e6d825ce1f5afd82e63bfd9293feba9918a7c79cfa",
+      "size_bytes": 626029
+    },
+    "IoT_injection_normal_modbus.log": {
+      "sha256": "857ba33a460d7db2797279d60a92963bada0dd1dd695b6d95db884a7cc76377d",
+      "size_bytes": 408232
+    },
+    "IoT_injection_normal_Motion_Light.csv": {
+      "sha256": "fe7648f75f5cfaf35394bf120af72886a0b7a62ceb0d31be62ffc30c19d4a6e6",
+      "size_bytes": 302326
+    },
+    "IoT_injection_normal_Motion_Light.log": {
+      "sha256": "d1f20dfe3304f1a05b0f73e9136a96bbf6cf10ddff16e142ff5542517a08a6bf",
+      "size_bytes": 1286367
+    },
+    "IoT_injection_normal_Thermostat.csv": {
+      "sha256": "801f20b3e0ff051cc90c54b160551227692031aacbd6bf2ab6536df330fcda05",
+      "size_bytes": 656904
+    },
+    "IoT_injection_normal_Thermostat.log": {
+      "sha256": "eabbf17052e055e13429f9300a14b9ae9afa195330c45d2ce790024c26d09756",
+      "size_bytes": 3051496
+    },
+    "IoT_injection_normal_weather.csv": {
+      "sha256": "bbd4e85aed10c33d784017eff89ac1070b75ad7d7377ed9f7f8dbb764ced2ce9",
+      "size_bytes": 1033359
+    },
+    "IoT_injection_normal_weather.log": {
+      "sha256": "c4065eeb7b855491f1bca493b669dbd45e3bc411b5f41a6237c09d79f0a88785",
+      "size_bytes": 2699491
+    },
+    "IoT_MITM_normal_fridge.csv": {
+      "sha256": "2c6e4b5a93005ffce871d4fe09bc85513bc149942b42b5bcba33ca0f239682bc",
+      "size_bytes": 112220
+    },
+    "IoT_MITM_normal_fridge.log": {
+      "sha256": "2b9fcf043646fff8e818b7d554fa4f5ec0f15fd8f7298b58e78c8e76bfbf0b1f",
+      "size_bytes": 371333
+    },
+    "IoT_MITM_normal_Garage_door.csv": {
+      "sha256": "bb32890a7972e1b0d70d49b34ec751e0e6265a2a4a7bbcd0b41963bbcfef8a41",
+      "size_bytes": 105346
+    },
+    "IoT_MITM_normal_Garage_door.log": {
+      "sha256": "c7e5a6f89dd3e51462883f6a6441c78fe1599b87a0507aed914c1cb01dc3373c",
+      "size_bytes": 345770
+    },
+    "IoT_MITM_normal_GPS_Tracker.csv": {
+      "sha256": "54536218155810eaad87b1469407ba425238dbafe7d5e8fa673b1e36275dcea3",
+      "size_bytes": 148792
+    },
+    "IoT_MITM_normal_GPS_Tracker.log": {
+      "sha256": "3d0a966613b91286133b848e32f6375ddeaa1c5120128fa0f293ea39ea7b8fdb",
+      "size_bytes": 327079
+    },
+    "IoT_MITM_normal_modbus.csv": {
+      "sha256": "341e30d92d6a96a57a7277398fa851c7b791c3fedb71ce04754be52dafaec63b",
+      "size_bytes": 582821
+    },
+    "IoT_MITM_normal_modbus.log": {
+      "sha256": "ea0df99e16b0995175e2bf7bb6dd31208017375fcad942c6b44f8dfc2df035f0",
+      "size_bytes": 299501
+    },
+    "IoT_MITM_normal_Motion_Light.csv": {
+      "sha256": "afd6829d069b7b399c8b31d86cc087f945430cc2ced48dcbdb96b58254498165",
+      "size_bytes": 70517
+    },
+    "IoT_MITM_normal_Motion_Light.log": {
+      "sha256": "78544791f21fd1343ecb6354dbffc3a19ef9d0bfe9adf18f2cd91190e918ab91",
+      "size_bytes": 291786
+    },
+    "IoT_MITM_normal_Thermostat.csv": {
+      "sha256": "3016db6f204056da177b5a69d17463178a00271f1540b0a92db60568d01cb835",
+      "size_bytes": 85112
+    },
+    "IoT_MITM_normal_Thermostat.log": {
+      "sha256": "4a00ffecfb72edde644d999656ac83557c4843aced4b6ffc85e54b356ba9c026",
+      "size_bytes": 445182
+    },
+    "IoT_MITM_normal_weather.csv": {
+      "sha256": "ebe8331e702b68b8873b701afbd6886e2371f1b4ce852d18be20b6a6e482a013",
+      "size_bytes": 179839
+    },
+    "IoT_MITM_normal_weather.log": {
+      "sha256": "e4bdb61421f0b4162e5746ed083069cee122296cb745c9ba50a3c06c32882d5d",
+      "size_bytes": 427177
+    },
+    "IoT_password_normal_fridge.csv": {
+      "sha256": "0ce2e42471b54794e1f7708cf364ef114a9887a54fcc20dbdd75966460b5667e",
+      "size_bytes": 1678017
+    },
+    "IoT_password_normal_fridge.log": {
+      "sha256": "24a95d7c590ab7a29ac380519470cafd77ec0004157dd179cabd60d3156ef523",
+      "size_bytes": 5582204
+    },
+    "IoT_password_normal_Garage_door.csv": {
+      "sha256": "293927e34069d4dee9b0e7b7b7538cc23a8ee52bf94d49181a6b88019cb0ccc7",
+      "size_bytes": 1396138
+    },
+    "IoT_password_normal_Garage_door.log": {
+      "sha256": "7952ece5612789d38ab4a841f535585ba790aeebd1e0c92defcfcf4eae469e33",
+      "size_bytes": 4297526
+    },
+    "IoT_password_normal_GPS_Tracker.csv": {
+      "sha256": "87fb0e8f69a3f4921e91d633969740bc9b0f2cabb95afe7a13168f13d69de8d9",
+      "size_bytes": 2412061
+    },
+    "IoT_password_normal_GPS_Tracker.log": {
+      "sha256": "5c0e88c57fa6aee192b59d607ebb9e98e80ba1c1f04522721be6c19017fb7643",
+      "size_bytes": 5423543
+    },
+    "IoT_password_normal_modbus.csv": {
+      "sha256": "859a16eb20d578913307699e1e3b620f30e3bbfa29281ba144afed2c7a238a2f",
+      "size_bytes": 2316817
+    },
+    "IoT_password_normal_modbus.log": {
+      "sha256": "2a085b59838cac49eb80c8e6bc88dd0d43ddb1f4f108efbd1887751171183eab",
+      "size_bytes": 1287230
+    },
+    "IoT_password_normal_Motion_Light.csv": {
+      "sha256": "c35a4a989356ff53ee66f12ef820a9191ec44ff1cbcb7595e21accfc924c6ae4",
+      "size_bytes": 1141571
+    },
+    "IoT_password_normal_Motion_Light.log": {
+      "sha256": "8ec0cc1ef37a21d0a27e2647e2f6f38bbafc5101028c8776f270e1cb06ccc1d9",
+      "size_bytes": 4419864
+    },
+    "IoT_password_normal_Thermostat.csv": {
+      "sha256": "eb40e63ad097369f91a404eb382e72f0bb84ed32344afb5571dfccc98b86914a",
+      "size_bytes": 469610
+    },
+    "IoT_password_normal_Thermostat.log": {
+      "sha256": "3135cb1b036756ddb207efa4f03d102e17ae85f97b2314d948dee7b339e0446b",
+      "size_bytes": 2019674
+    },
+    "IoT_password_normal_weather.csv": {
+      "sha256": "1300eeb10fd6ffa057a5f8c3da7767d26767449b0df972790a4c7e2e9fb2d5d2",
+      "size_bytes": 3052554
+    },
+    "IoT_password_normal_weather.log": {
+      "sha256": "bcbffb0de5f37040d8d4c95970e897646e1ce92fda338b068c1db9fd1de8a442",
+      "size_bytes": 7602404
+    },
+    "IoT_runsomware_normal_fridge.csv": {
+      "sha256": "cdbe448a333a2beb15868904f8712a77363d328375741c3b300bd2e82972c6ad",
+      "size_bytes": 148993
+    },
+    "IoT_runsomware_normal_fridge.log": {
+      "sha256": "b95820ffe38e528f46590cb785bdb0a8f35991b978eddaf3d812608cfea4584b",
+      "size_bytes": 501960
+    },
+    "IoT_runsomware_normal_Garage-door.csv": {
+      "sha256": "ddae4485aca1504a5484d1716a8b1b9520296d6ee71fb7cfada6708d0545a6bf",
+      "size_bytes": 168142
+    },
+    "IoT_runsomware_normal_Garage-door.log": {
+      "sha256": "7116c396be1abfc497bbe9050ac62ae6a5f7a79f5008b4a4dbb176b2ce69e72c",
+      "size_bytes": 668494
+    },
+    "IoT_runsomware_normal_GPS_Tracker.csv": {
+      "sha256": "64735465cfaf4d4784bdb055ca4f4ebaebe9e61c1c038a5b10b7accd456c7700",
+      "size_bytes": 225373
+    },
+    "IoT_runsomware_normal_GPS_Tracker.log": {
+      "sha256": "921616fb3fb40ee5acad3a837c9809b8ab5e6d4ccbb6b6a55b96ad757e0006bd",
+      "size_bytes": 506578
+    },
+    "IoT_runsomware_normal_modbus.csv": {
+      "sha256": "7f76e59b7bf8ebeabf41ecb1efa5fc8c4fbe0efa30b9517f9ba60bc030948976",
+      "size_bytes": 595466
+    },
+    "IoT_runsomware_normal_modbus.log": {
+      "sha256": "2057f92f8fff1f5e80e3c63492d08a140deda48e405068aa7c513a19c003e53d",
+      "size_bytes": 326389
+    },
+    "IoT_runsomware_normal_Motion_Light.csv": {
+      "sha256": "e07a497f18b778e6c98ff0e34c45e286e669fc57f1601e1756d713f57485c09e",
+      "size_bytes": 123929
+    },
+    "IoT_runsomware_normal_Motion_Light.log": {
+      "sha256": "5a94c05c51b205b1ed4e50d027f39e622f0538227ad90c1c58e4773eda8aaba0",
+      "size_bytes": 488823
+    },
+    "IoT_runsomware_normal_Thermostat.csv": {
+      "sha256": "4ebcfe41f1eb9026787fc01817d679fc2fc4bba908b81578216a3b8632373919",
+      "size_bytes": 148437
+    },
+    "IoT_runsomware_normal_Thermostat.log": {
+      "sha256": "52c2f6990821f684c99cba4b28b365a70b706e9e3d0421979355d8eca4b06b9f",
+      "size_bytes": 815526
+    },
+    "IoT_runsomware_normal_weather.csv": {
+      "sha256": "ddebd16b6dc5db188b6d39eadb147c809bcc0f53aa0a24c4eb84b100eb79b550",
+      "size_bytes": 271948
+    },
+    "IoT_runsomware_normal_weather.log": {
+      "sha256": "170447b0e7b4a226816ad3c92fd42f4d44cc9f17e8506f8e9e8241a74b3ceee6",
+      "size_bytes": 713933
+    },
+    "IoT_scanning_normal_fridge1.csv": {
+      "sha256": "2ca424bfae251b604573e997a7546182d2203461b7782dca0f11d2d726af8505",
+      "size_bytes": 129985
+    },
+    "IoT_scanning_normal_fridge1.log": {
+      "sha256": "73150bf415b5f087cecc3ca8562387b93cdac20fe682fcc9511a32722ab521d2",
+      "size_bytes": 429862
+    },
+    "IoT_scanning_normal_Garage-door1.csv": {
+      "sha256": "c2b793b9ad4f82ab3c628c9f2c4f65b9392bf919b8477e569edca04156e6b77d",
+      "size_bytes": 361199
+    },
+    "IoT_scanning_normal_Garage-door1.log": {
+      "sha256": "c610e82751b0b6a92690a25907ec6d3831b11c2c00eb5c2a3025a6661cb50b8a",
+      "size_bytes": 1205610
+    },
+    "IoT_scanning_normal_GPS_Tracker1.csv": {
+      "sha256": "6e0879b1b7c298104f963252c99e2f9e5b184724f22cebf41f86ac52141d244f",
+      "size_bytes": 510280
+    },
+    "IoT_scanning_normal_GPS_Tracker1.log": {
+      "sha256": "f8d4768fedfafb6cf41493afb8ab87f949c655f5611327f318fa6f612ea05cd0",
+      "size_bytes": 1151972
+    },
+    "IoT_scanning_normal_modbus1.csv": {
+      "sha256": "7a1e799d747f304ab442e0a324c57f4b1479ddb2de64a4fd855d5a5699c28082",
+      "size_bytes": 2549557
+    },
+    "IoT_scanning_normal_modbus1.log": {
+      "sha256": "d7507d33d089ad1cd3bd398cc2f9b5d85fc821cc50ea4248259bae27cf3650b0",
+      "size_bytes": 1425579
+    },
+    "IoT_scanning_normal_Motion_Light1.csv": {
+      "sha256": "4362835a3a26dbdf33fddb9ab56dd052b0c6969d1dcec32916e8c77031813e47",
+      "size_bytes": 110274
+    },
+    "IoT_scanning_normal_Motion_Light1.log": {
+      "sha256": "fcd5af07c2419daf9ff5b86f16915161a1a2c5566009d971798a2113d47659a8",
+      "size_bytes": 419373
+    },
+    "IoT_scanning_normal_Thermostat1.csv": {
+      "sha256": "f9787bd396f6038c354355d1c16aeb1c0956ebda8359596358a325efcb811f71",
+      "size_bytes": 289189
+    },
+    "IoT_scanning_normal_Thermostat1.log": {
+      "sha256": "42cc13e38bc8ea1859355896ed5b28362ec8f7b70e1b982611b0a264b4874abc",
+      "size_bytes": 1132402
+    },
+    "IoT_scanning_normal_weather1.csv": {
+      "sha256": "c6ca38c5955830ba53247d1645c2db426658da1745ae0092f9308ea164fc9f42",
+      "size_bytes": 684087
+    },
+    "IoT_scanning_normal_weather1.log": {
+      "sha256": "f8970bbbcc02acfb5725d3f1bb5d8356ac5c51af5828f906af16a97ba178f3d9",
+      "size_bytes": 1707427
+    },
+    "IoT_XSS_normal_fridge.csv": {
+      "sha256": "4d2c31533379599047831247f8a6e4517fff9f59d2b1c688dc0106ae1f9382ff",
+      "size_bytes": 933701
+    },
+    "IoT_XSS_normal_fridge.log": {
+      "sha256": "72569c897d4b09a6fa9a3fac5c8a5d550fe683bfcb6f9867e043fba39af9ab07",
+      "size_bytes": 3086944
+    },
+    "IoT_XSS_normal_Garage_door.csv": {
+      "sha256": "5378740ce9456f9cf6495128e9aaac69c9391691e71dbcc95bc68456fe93569f",
+      "size_bytes": 843263
+    },
+    "IoT_XSS_normal_Garage_door.log": {
+      "sha256": "8d7875c26cb75a0a0271fd854e0ea4232d9a483e6ce1aed924669b9596b32084",
+      "size_bytes": 2738272
+    },
+    "IoT_XSS_normal_GPS_Tracker.csv": {
+      "sha256": "4b7a675802d58ddba60555e763514b6ec18e2223f5b1125892395b7c4618c819",
+      "size_bytes": 1065298
+    },
+    "IoT_XSS_normal_GPS_Tracker.log": {
+      "sha256": "10fe97db41d8c387c6955f78dce45424206a1578e5a3414870bac3e5d539026a",
+      "size_bytes": 2395638
+    },
+    "IoT_XSS_normal_modbus.csv": {
+      "sha256": "256c5331aea1031823f7d972958f9f02e85a06edd81ddc6a807084f0997fcff3",
+      "size_bytes": 1055078
+    },
+    "IoT_XSS_normal_modbus.log": {
+      "sha256": "ea054f975b0fc1aa4482c216adeb7f9efd9e3f51ff5c3c0fe89857e0a8dc70c7",
+      "size_bytes": 704626
+    },
+    "IoT_XSS_normal_Motion_Light.csv": {
+      "sha256": "a76da2e71966d9aaed0f4fd80c4622da34f874d2c5511363f82f000bf98712a9",
+      "size_bytes": 593748
+    },
+    "IoT_XSS_normal_Motion_Light.log": {
+      "sha256": "04db8a0b1f1fbc45e5aabfeb2f088b992eae5cb70026f42911ec542815189f53",
+      "size_bytes": 2298930
+    },
+    "IoT_XSS_normal_Thermostat.csv": {
+      "sha256": "d6c9d968995d02ce90c35f2df68f63ed8b147ae81da07ccc8d8ad5d09c4ed514",
+      "size_bytes": 709317
+    },
+    "IoT_XSS_normal_Thermostat.log": {
+      "sha256": "5068fff30dcd509be1f719e73091550917276cf39dd7ce6c4aa3a409d839729c",
+      "size_bytes": 3184060
+    },
+    "IoT_XSS_normal_weather.csv": {
+      "sha256": "4ba3bf4466364c2a71c32738919b92a0b0830f01e7121fff8c4441363349ad22",
+      "size_bytes": 2611811
+    },
+    "IoT_XSS_normal_weather.log": {
+      "sha256": "6a9d1006453082075d14aa0ccc527323ad4f99b05a34d4c022c3e0ab1146ee8f",
+      "size_bytes": 6509372
+    }
+  }
+}
